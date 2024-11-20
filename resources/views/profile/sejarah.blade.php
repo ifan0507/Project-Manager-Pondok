@@ -34,7 +34,7 @@
                                                 <td>
                                                     <div class="d-inline-flex gap-2">
                                                         <div class="rounded-circle">
-                                                            <button type="button" class="btn-edit-visi btn btn-sm"
+                                                            <button type="button" class="btn-edit-sejarah btn btn-sm"
                                                                 style="background-color: #060d51; color: white"
                                                                 data-id="{{ $sejarah->id }}"><i
                                                                     class="fa-regular fa-pen-to-square"></i></button>
@@ -93,7 +93,9 @@
                         <div class="mb-3">
                             <label for="gambar" class="col-form-label">Gambar <span class="required"
                                     style="color:red">*</span></label>
-                            <input type="file" class="form-control" name="image" id="image">
+                            <img src="" class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                            <input type="file" class="form-control" name="image" id="image"
+                                onchange="previewImage()">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="col-form-label">Deskripsi <span class="required"
@@ -114,31 +116,34 @@
     </div>
 
     {{-- Modal Edit --}}
-    {{-- <div class="modal fade" id="modal-edit-visi" tabindex="-1" aria-labelledby="modal-visiLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-edit-sejarah" tabindex="-1" aria-labelledby="modal-sejarahLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #060d51; color: white">
-                    <h5 class="modal-title" id="modal-visiLabel">Update Visi Misi</h5>
+                    <h5 class="modal-title" id="modal-sejarahLabel">Update Sejarah</h5>
                     <button type="button" class="btn-close  btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
-                <form action="" method="post" id="form-edit-visi">
+                <form action="" method="post" id="form-edit-sejarah">
                     @csrf
                     @method('put')
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="e-visi" class="col-form-label">Visi</label>
-                                    <textarea class="form-control" name="e-visi" id="e-visi"></textarea>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="e-misi" class="col-form-label">Misi</label>
-                                    <textarea class="form-control" name="e-misi" id="e-misi"></textarea>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label for="e-judul" class="col-form-label">Judul</label>
+                            <textarea class="form-control" name="e-judul" id="e-judul"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gambar" class="col-form-label">Gambar <span class="required"
+                                    style="color:red">*</span></label>
+                            <input type="hidden" name="oldImage" id="oldImage">
+                            <img src="" class="img-preview-edit img-fluid mb-3 col-sm-5 d-block" alt="">
+                            <input type="file" class="form-control" name="e-image" id="e-image"
+                                onchange="previewImageEdit()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="e-description" class="col-form-label">Description</label>
+                            <textarea class="form-control" name="e-description" id="e-description"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -151,5 +156,38 @@
             </div>
 
         </div>
-    </div> --}}
+    </div>
+
+
+
+    <script>
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFReader) {
+                imgPreview.src = oFReader.target.result;
+            }
+
+        }
+
+        function previewImageEdit() {
+            const image = document.querySelector('#e-image');
+            const imgPreview = document.querySelector('.img-preview-edit');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFReader) {
+                imgPreview.src = oFReader.target.result;
+            };
+        }
+    </script>
 @endsection

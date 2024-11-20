@@ -150,4 +150,26 @@
 
         </div>
     </div>
+
+    {{-- <script>
+        document.querySelectorAll(".btn-close, .btn-secondary").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                // Ambil teks dari modal-title
+                const modalTitle = document.querySelector(".modal-title").textContent.trim();
+
+                if (modalTitle === "Tambah Visi Misi") {
+                    // Tutup modal Tambah Visi
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("modal-visi"));
+                    modal.hide();
+                    document.getElementById("form-visi").reset();
+                } else if (modalTitle === "Update Visi Misi") {
+                    // Tutup modal Edit Visi
+                    const modalEdit = bootstrap.Modal.getInstance(document.getElementById(
+                        "modal-edit-visi"));
+                    modalEdit.hide();
+                    document.getElementById("form-edit-visi").reset();
+                }
+            });
+        });
+    </script> --}}
 @endsection

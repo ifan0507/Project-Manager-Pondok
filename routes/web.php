@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\PendaftaranController;
 use App\Http\Controllers\profil\SejarahController as ProfilSejarahController;
 use App\Models\VisiMisi;
 use Illuminate\Support\Facades\Http;
@@ -8,7 +10,11 @@ use App\Http\Controllers\SantriController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\profil\VisiMisiController;
 
-Route::get('/', [WelcomeController::class, 'index']);
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+
+Route::get('/dashboard', [WelcomeController::class, 'index']);
 
 Route::get('/api/kabupaten/{provinceId}', function ($provinceId) {
     $response = Http::get("https://emsifa.github.io/api-wilayah-indonesia/api/regencies/{$provinceId}.json");
@@ -44,3 +50,5 @@ Route::put('/visi-misi/{id}', [VisiMisiController::class, 'update']);
 Route::get('/sejarah', [ProfilSejarahController::class, 'index']);
 Route::post('/sejarah/save', [ProfilSejarahController::class, 'store']);
 Route::delete('/sejarah/{id}', [ProfilSejarahController::class, 'destroy'])->name('sejarah.delete');
+Route::get('/sejarah/{id}', [ProfilSejarahController::class, 'edit']);
+Route::put('/sejarah/{id}', [ProfilSejarahController::class, 'update']);;

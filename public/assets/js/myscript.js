@@ -365,4 +365,57 @@ $(document).ready(function () {
             text: "Data berhasil dihapus!",
         });
     });
+
+    $(".btn-edit-sejarah").on("click", function (e) {
+        const id = $(this).data("id");
+        $.ajax({
+            url: `/sejarah/${id}`,
+            type: "GET",
+            success: function (data) {
+                $("#e-judul").val(data.judul);
+                $("#oldImage").val(data.gambar);
+                $(".img-preview-edit")
+                    .attr("src", `storage/${data.gambar}`)
+                    .show();
+                $("#e-description").val(data.deskripsi);
+                $("#form-edit-sejarah").attr("action", `/sejarah/${id}`);
+                $("#modal-edit-sejarah").modal("show");
+            },
+        });
+    });
+
+    $("#form-edit-sejarah").on("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                $("#modal-edit-sejarah").modal("hide");
+                location.reload();
+                $("#form-edit-sejarah")[0].reset();
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil!",
+                    text: "Data berhasil disimpan!",
+                });
+            },
+            error: function (xhr) {
+                // Menampilkan pesan kesalahan jika ada
+                var errors = xhr.responseJSON.errors;
+                var errorString = "";
+                for (var error in errors) {
+                    errorString += errors[error][0] + "\n";
+                }
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorString,
+                });
+            },
+        });
+    });
 });
