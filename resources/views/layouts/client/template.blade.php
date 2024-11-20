@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- Material Kit CSS -->
     <link href="{{ asset('material-kit-master/assets/css/material-kit.css?v=3.0.0') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <style>
         .logo-navbar {
             height: 60px;
@@ -43,6 +45,9 @@
             color: white !important;
         }
     </style>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
@@ -57,7 +62,6 @@
         </section>
     </div>
     @include('layouts.client.footer')
-
 
 
 
