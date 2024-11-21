@@ -13,6 +13,7 @@ use App\Http\Controllers\profil\VisiMisiController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.save');
 
 Route::get('/dashboard', [WelcomeController::class, 'index']);
 

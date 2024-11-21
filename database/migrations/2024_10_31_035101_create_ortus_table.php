@@ -17,8 +17,16 @@ return new class extends Migration
                 table: 'santris',
                 indexName: 'santri_id'
             )->onDelete('cascade')->onUpdate('cascade');
+            $table->string('no_kk');
             $table->string('ayah');
+            $table->string('no_ktp_ayah');
+            $table->string('pendidikan_ayah');
+            $table->string('pekerjaan_ayah');
             $table->string('ibu');
+            $table->string('no_ktp_ibu');
+            $table->string('pendidikan_ibu');
+            $table->string('pekerjaan_ibu');
+            $table->string('no_tlp');
             $table->timestamps();
         });
     }

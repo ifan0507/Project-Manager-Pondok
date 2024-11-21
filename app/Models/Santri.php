@@ -13,11 +13,16 @@ class Santri extends Model
     use HasFactory;
     protected $table = 'santris';
     protected $fillable = ['nis', 'nik', 'nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'agama', 'provinsi', 'kab_id', 'kabupaten', 'kec_id', 'kecamatan', 'desa', 'alamat'];
-    protected $width = "ortu";
+    protected $width = ["ortu", "riwayat_santri"];
     protected $timestamp = false;
     public function ortu(): HasOne
     {
         return $this->hasOne(Ortu::class, 'santri_id');
+    }
+
+    public function RiwayatSantri(): HasOne
+    {
+        return $this->hasOne(RiwayatSantri::class, 'santri_id');
     }
 
     public function scopeFilter(Builder $query, array $filters): void

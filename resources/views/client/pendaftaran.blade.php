@@ -14,10 +14,12 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form id="contact-form" method="post" autocomplete="off">
+                                <form id="contact-form" method="post" autocomplete="off"
+                                    action="{{ route('pendaftara.save') }}">
                                     <div class="card-body p-0 my-3">
                                         <div class="row">
                                             <div class="card-body">
+
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="input-group input-group-dynamic mb-4">
@@ -35,10 +37,11 @@
                                                     </div>
                                                     <div class="col-md-4 ps-2">
                                                         <div class="input-group input-group-dynamic mb-4">
-                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                            <select class="form-control" id="exampleFormControlSelect1"
+                                                                name="">
                                                                 <option disabled selected class="form-label">Tahun Pelajaran
                                                                 </option>
-                                                                <option>2</option>
+                                                                <option value="2024/2025">2024/2025</option>
                                                                 <option>3</option>
                                                                 <option>4</option>
                                                                 <option>5</option>
