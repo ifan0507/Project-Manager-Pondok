@@ -22,14 +22,15 @@
                                                     <div class="col-md-4">
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <label class="form-label">No Pendaftaran</label>
-                                                            <input class="form-control" aria-label="" type="text">
+                                                            <input class="form-control" name="no_daftar" id="no_daftar"
+                                                                aria-label="" type="text">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 ps-2">
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <label class="form-label">Tanggal Daftar</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
+                                                            <input type="text" class="form-control" name=""
+                                                                placeholder="" aria-label="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 ps-2">
@@ -45,6 +46,134 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <label class="form-label">NIS</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <label class="form-label">NIK</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <label class="form-label">NISN</label>
+                                                            <input class="form-control" aria-label="" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <label class="form-label">Nama Lengkap</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option disabled selected class="form-label">Jenis Kelamin
+                                                                </option>
+                                                                <option>Laki-Laki</option>
+                                                                <option>Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <label class="form-label">Tempat Lahir</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4 ps-2 mb-4">
+                                                        <div class="input-group input-group-static">
+                                                            <span class="input-group-text"><i
+                                                                    class="fas fa-calendar"></i></span>
+                                                            <input class="form-control datepicker"
+                                                                placeholder="Tanggal Lahir" type="text">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option disabled selected class="form-label">Provinsi
+                                                                </option>
+                                                                <option>Laki-Laki</option>
+                                                                <option>Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option disabled selected class="form-label">Kabupaten
+                                                                </option>
+                                                                <option>Laki-Laki</option>
+                                                                <option>Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option disabled selected class="form-label">Kecamatan
+                                                                </option>
+                                                                <option>Laki-Laki</option>
+                                                                <option>Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 ps-2">
+                                                        <div class="input-group input-group-dynamic mb-4">
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option disabled selected class="form-label">Desa
+                                                                </option>
+                                                                <option>Laki-Laki</option>
+                                                                <option>Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 mb-3">
+                                                        <div class="input-group input-group-dynamic mb-3">
+                                                            <label class="form-label">Alamat</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 mb-3">
+                                                        <div class="input-group input-group-dynamic mb-3">
+                                                            <label class="form-label">RT</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 mb-3">
+                                                        <div class="input-group input-group-dynamic mb-3">
+                                                            <label class="form-label">RW</label>
+                                                            <input type="text" class="form-control" placeholder=""
+                                                                aria-label="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h6 class="">Informasi Orang Tua Santri</h6>
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="input-group input-group-dynamic mb-4">
@@ -59,98 +188,12 @@
                                                                 aria-label="">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">NIK</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Nama Lengkap</label>
-                                                            <input class="form-control" aria-label="" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <select class="form-control" id="exampleFormControlSelect1">
-                                                                <option disabled selected class="form-label">Jenis Kelamin
-                                                                </option>
-                                                                <option>Laki-Laki</option>
-                                                                <option>Perempuan</option>
-                                                                
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Tempat Lahir</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="input-group input-group-dynamic mb-4">
                                                             <label class="form-label">No Hp Yang Bisa dihubungi</label>
                                                             <input class="form-control" aria-label="" type="text">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-static">
-                                                            <span class="input-group-text"><i
-                                                                    class="fas fa-calendar"></i></span>
-                                                            <input class="form-control datepicker"
-                                                                placeholder="Tanggal Lahir" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Provinsi</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Kabupaten</label>
-                                                            <input class="form-control" aria-label="" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">kecamatan</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 ps-2">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Desa</label>
-                                                            <input type="text" class="form-control" placeholder=""
-                                                                aria-label="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="input-group input-group-dynamic mb-4">
-                                                            <label class="form-label">Alamat</label>
-                                                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-                                                        </div>
-
-                                                    </div>
-
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 text-center">
@@ -160,6 +203,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
