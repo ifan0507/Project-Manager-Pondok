@@ -12,7 +12,7 @@ class Santri extends Model
 {
     use HasFactory;
     protected $table = 'santris';
-    protected $fillable = ['nis', 'nik', 'nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'agama', 'provinsi', 'kab_id', 'kabupaten', 'kec_id', 'kecamatan', 'desa', 'alamat'];
+    protected $fillable = ['no_daftar', 'tgl_daftar', 'thn_pelajaran', 'nis', 'nisn', 'nik', 'nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'provinsi', 'kab_id', 'kabupaten', 'kec_id', 'kecamatan', 'desa', 'alamat', 'rt', 'rw'];
     protected $width = ["ortu", "riwayat_santri"];
     protected $timestamp = false;
     public function ortu(): HasOne

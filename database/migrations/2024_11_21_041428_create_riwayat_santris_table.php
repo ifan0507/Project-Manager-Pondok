@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('santri_id')->constrained(
                 table: 'santris'
             )->onDelete('cascade')->onUpdate('cascade');
-            $table->string('pendidikan_sekolah');
+            $table->string('pendidikan_santri');
             $table->string('asal_sekolah');
             $table->string('thn_lulus');
             $table->string('daftar_kelas');

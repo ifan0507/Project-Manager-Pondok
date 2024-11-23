@@ -18,6 +18,8 @@
     <link href="{{ asset('material-kit-master/assets/css/material-kit.css?v=3.0.0') }}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+    <script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script> <!-- Hanya jika kamu memang membutuhkan jQuery -->
+    <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script> <!-- SweetAlert2 -->
     <style>
         .logo-navbar {
             height: 60px;
@@ -44,8 +46,16 @@
         .footer p {
             color: white !important;
         }
+
+        select.form-control {
+            padding: 8px;
+        }
+
+        option {
+            padding: 8px;
+        }
     </style>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
@@ -65,7 +75,8 @@
 
 
 
-
+    <script src="{{ asset('assets/js/all.min.js') }}"></script>
+    <script src="{{ asset('assets/js/client.js') }}"></script>
     <!--   Core JS Files   -->
     <script src="{{ asset('material-kit-master/assets/js/core/popper.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('material-kit-master/assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -91,7 +102,6 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
     <script src="{{ asset('material-kit-master/assets/js/material-kit.min.js?v=3.1.0') }}" type="text/javascript"></script>
-
 
 
 </body>

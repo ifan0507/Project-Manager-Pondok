@@ -10,7 +10,7 @@ class RiwayatSantri extends Model
 {
     use HasFactory;
 
-    protected $table = 'riwayat_santri';
+    protected $table = 'riwayat_santris';
     protected $fillable = ['santri_id', 'pendidikan_santri', 'asal_sekolah', 'thn_lulus', 'daftar_kelas'];
     protected $timestamp = false;
 

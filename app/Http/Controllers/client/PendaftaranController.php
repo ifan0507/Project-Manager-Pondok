@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\client;
 
-use App\Http\Controllers\Controller;
 use App\Models\Ortu;
-use App\Models\RiwayatSantri;
 use App\Models\Santri;
 use Illuminate\Http\Request;
+use App\Models\RiwayatSantri;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
+use Exception;
+use Illuminate\Support\Facades\Session;
 
 class PendaftaranController extends Controller
 {
@@ -15,11 +18,47 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
+        $year = date('Y');
+        $month = date('m');
+
+        // Temukan entri terakhir untuk tahun dan bulan yang sama
+        $lastEntry = Santri::whereYear('created_at', $year)
+            ->whereMonth('created_at', $month)
+            ->orderBy('nis', 'desc')
+            ->first();
+
+        // Tentukan nomor urutan berikutnya
+        $sequence = 1;
+        if ($lastEntry) {
+            $lastNis = substr($lastEntry->nis, -3);
+            $sequence = intval($lastNis) + 1;
+        }
+
+        // Format NIS
+        $nis = sprintf('%s%s%03d', $year, $month, $sequence);
+
+        $lastEntry = Santri::whereYear('created_at', $year)
+            ->whereMonth('created_at', $month)
+            ->orderBy('no_daftar', 'desc')
+            ->first();
+
+        // Tentukan nomor urutan berikutnya
+        $sequence = 1;
+        if ($lastEntry) {
+            $lastNoDaftar = substr($lastEntry->no_daftar, -3);
+            $sequence = intval($lastNoDaftar) + 1;
+        }
+
+        // Format Daftar
+        $no_daftar = sprintf('DFT%s%s%03d', $year, $month, $sequence);
+
+        $tanggalDaftar = Carbon::now()->format('d/m/Y');
+
         $data = (object)[
             'title' => 'Pendaftaran Online Santri Baru',
             'list' => 'PP Nurul Huda'
         ];
-        return view('client.pendaftaran', ['data' => $data]);
+        return view('client.pendaftaran', ['data' => $data, 'nis' => $nis, 'no_daftar' => $no_daftar, 'tgl_daftar' => $tanggalDaftar]);
     }
 
     /**
@@ -98,8 +137,8 @@ class PendaftaranController extends Controller
             'nik' => $request->input('nik'),
             'nama' => $request->input('name'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
-            'tmp_lahir' => $request->input('tmp_lahir'),
-            'tgl_lahir' => $request->input('tgl_lahir'),
+            'tempat_lahir' => $request->input('tmp_lahir'),
+            'tanggal_lahir' => $request->input('tgl_lahir'),
             'provinsi' => $request->input('provinsi'),
             'kabupaten' => $request->input('kabupaten'),
             'kab_id' => $request->input('kab_id'),
@@ -128,9 +167,9 @@ class PendaftaranController extends Controller
         $riwayat = RiwayatSantri::create([
             'santri_id' => $santri->id,
             'pendidikan_santri' => $request->pendidikan_santri,
-            'asal_sekoalah' => $request->asal_sekoalah,
+            'asal_sekolah' => $request->asal_sekolah,
             'thn_lulus' => $request->thn_lulus,
-            'daftar_kelas' => $request->aftar_kelas,
+            'daftar_kelas' => $request->daftar_kelas,
         ]);
     }
 

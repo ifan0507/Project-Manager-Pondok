@@ -2,7 +2,8 @@
 
 <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center text-white" href="/" rel="tooltip" title="PP Nurul Huda">
+        <a class="navbar-brand d-flex align-items-center text-white" href="{{ route('home') }}" rel="tooltip"
+            title="PP Nurul Huda">
             <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo-navbar me-2">
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"

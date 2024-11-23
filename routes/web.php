@@ -1,19 +1,24 @@
 <?php
 
-use App\Http\Controllers\client\HomeController;
-use App\Http\Controllers\client\PendaftaranController;
-use App\Http\Controllers\profil\SejarahController as ProfilSejarahController;
 use App\Models\VisiMisi;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\AboutController;
+use App\Http\Controllers\client\ContactController;
 use App\Http\Controllers\profil\VisiMisiController;
+use App\Http\Controllers\client\PendaftaranController;
+use App\Http\Controllers\profil\SejarahController as ProfilSejarahController;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
+
 Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
-Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.save');
+Route::post('/pendaftaran', [PendaftaranController::class, 'store']);
 
 Route::get('/dashboard', [WelcomeController::class, 'index']);
 
