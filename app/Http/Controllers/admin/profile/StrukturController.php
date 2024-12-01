@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\profil;
+namespace App\Http\Controllers\admin\profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MasyayinkController extends Controller
+class StrukturController extends Controller
 {
     /**
      * Display a listing of the resource.

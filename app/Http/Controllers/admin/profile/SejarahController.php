@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\profil;
+namespace App\Http\Controllers\admin\profile;
 
 use App\Models\Sejarah;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Storage;
 
 class SejarahController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $breadcrumb = (object)[
@@ -22,7 +18,7 @@ class SejarahController extends Controller
         $activeMenu = 'profile';
         $activeSubMenu = 'sejarah';
         $data = Sejarah::orderBy('created_at', 'asc')->get();
-        return view('profile.sejarah', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'sejarahs' => $data]);
+        return view('admin.profile.sejarah', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'sejarahs' => $data]);
     }
 
     /**

@@ -1,24 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin\profile;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class WelcomeController extends Controller
+class MasyayikhController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $breadcrumb = (object)[
-            'title' => 'Selamat Datang',
-            'list' => ['Home', 'Welcome']
-        ];
-
-        $activeMenu = 'dashboard';
-        $activeSubMenu = '';
-        return view('welcome', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu]);
+        //
     }
 
     /**

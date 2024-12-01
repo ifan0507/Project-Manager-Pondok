@@ -103,14 +103,20 @@ $(document).ready(function () {
             type: "GET",
             success: function (data) {
                 $("#e-id-ortu").val(data.ortu.id);
+                $("#e-id-riwayat").val(data.riwayat_santri.id);
+                $("#e-no_daftar").val(data.no_daftar);
+                $("#e-tgl_daftar").val(data.tgl_daftar);
+                $(
+                    "#e-thn_pelajaran option[value='" +
+                        data.thn_pelajaran +
+                        "']"
+                ).prop("selected", true);
                 $("#e-nis").val(data.nis);
+                $("#e-nisn").val(data.nisn);
                 $("#e-nik").val(data.nik);
                 $("#e-nama").val(data.nama);
-                $(
-                    "#e-tempat-lahir option[value='" + data.tempat_lahir + "']"
-                ).prop("selected", true);
-                $("#e-tanggal-lahir").val(data.tanggal_lahir);
-                $("#e-agama").val(data.agama);
+                $("#e-tmp_lahir").val(data.tempat_lahir);
+                $(".e-tgl_lahir").val(data.tanggal_lahir);
                 $("#e-provinsi option[value='" + data.provinsi + "']")
                     .prop("selected", true)
                     .change();
@@ -135,8 +141,50 @@ $(document).ready(function () {
                     true
                 );
                 $("#e-alamat").val(data.alamat);
-                $("#e-nama-ayah").val(data.ortu.ayah);
-                $("#e-nama-ibu").val(data.ortu.ibu);
+                $("#e-rt").val(data.rt);
+                $("#e-rw").val(data.rw);
+                $("#e-no_kk").val(data.ortu.no_kk);
+                $("#e-ayah").val(data.ortu.ayah);
+                $("#e-no_ktp_ayah").val(data.ortu.no_ktp_ayah);
+                $(
+                    "#e-pendidikan_ayah option[value='" +
+                        data.ortu.pendidikan_ayah +
+                        "']"
+                ).prop("selected", true);
+                $(
+                    "#e-pekerjaan_ayah option[value='" +
+                        data.ortu.pekerjaan_ayah +
+                        "']"
+                ).prop("selected", true);
+                $("#e-ibu").val(data.ortu.ibu);
+                $("#e-no_ktp_ibu").val(data.ortu.no_ktp_ibu);
+                $(
+                    "#e-pendidikan_ibu option[value='" +
+                        data.ortu.pendidikan_ibu +
+                        "']"
+                ).prop("selected", true);
+                $(
+                    "#e-pekerjaan_ibu option[value='" +
+                        data.ortu.pekerjaan_ibu +
+                        "']"
+                ).prop("selected", true);
+                $("#e-no_tlp").val(data.ortu.no_tlp);
+                $(
+                    "#e-pendidikan_santri option[value='" +
+                        data.riwayat_santri.pendidikan_santri +
+                        "']"
+                ).prop("selected", true);
+                $("#e-asal_sekolah").val(data.riwayat_santri.asal_sekolah);
+                $(
+                    "#e-thn_lulus option[value='" +
+                        data.riwayat_santri.thn_lulus +
+                        "']"
+                ).prop("selected", true);
+                $(
+                    "#e-daftar_kelas option[value='" +
+                        data.riwayat_santri.daftar_kelas +
+                        "']"
+                ).prop("selected", true);
 
                 if (data.jenis_kelamin === "Laki-Laki") {
                     $("#inlineRadio1").prop("checked", true);
@@ -156,20 +204,38 @@ $(document).ready(function () {
             url: `/santri/detail/${id}`,
             type: "GET",
             success: function (data) {
+                $("#d-no_daftar").text(data.no_daftar);
+                $("#d-tgl_daftar").text(data.tgl_daftar);
+                $("#d-thn_pelajaran").text(data.thn_pelajaran);
                 $("#d-nis").text(data.nis);
+                $("#d-nisn").text(data.nisn);
                 $("#d-nik").text(data.nik);
                 $("#d-nama").text(data.nama);
                 $("#d-jenis").text(data.jenis_kelamin);
                 $("#d-tempat-lahir").text(data.tempat_lahir);
                 $("#d-tanggal-lahir").text(data.tanggal_lahir);
-                $("#d-agama").text(data.agama);
                 $("#d-provinsi").text(data.provinsi);
                 $("#d-kabupaten").text(data.kabupaten);
                 $("#d-kecamatan").text(data.kecamatan);
                 $("#d-desa").text(data.desa);
                 $("#d-alamat").text(data.alamat);
+                $("#d-rt_rw").text(data.rt + "/" + data.rw);
+                $("#d-no_kk").text(data.ortu.no_kk);
                 $("#d-ayah").text(data.ortu.ayah);
+                $("#d-no_ktp_ayah").text(data.ortu.no_ktp_ayah);
+                $("#d-pendidikan_ayah").text(data.ortu.pendidikan_ayah);
+                $("#d-pekerjaan_ayah").text(data.ortu.pekerjaan_ayah);
                 $("#d-ibu").text(data.ortu.ibu);
+                $("#d-no_ktp_ibu").text(data.ortu.no_ktp_ibu);
+                $("#d-pendidikan_ibu").text(data.ortu.pendidikan_ibu);
+                $("#d-pekerjaan_ibu").text(data.ortu.pekerjaan_ibu);
+                $("#d-no_tlp").text(data.ortu.no_tlp);
+                $("#d-pendidikan_santri").text(
+                    data.riwayat_santri.pendidikan_santri
+                );
+                $("#d-asal_sekolah").text(data.riwayat_santri.asal_sekolah);
+                $("#d-thn_lulus").text(data.riwayat_santri.thn_lulus);
+                $("#d-daftar_kelas").text(data.riwayat_santri.daftar_kelas);
                 $("#detailLabel").text("Detail Data Santri");
                 $("#detail").modal("show");
             },
@@ -417,5 +483,131 @@ $(document).ready(function () {
                 });
             },
         });
+    });
+
+    $("#form-izin").on("submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr("action"),
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+                if (response.success) {
+                    window.location.href = response.redirect_url;
+                }
+            },
+            error: function (xhr) {
+                if (xhr.status === 422) {
+                    const errors = xhr.responseJSON.errors;
+                    if (errors && errors.izin_nis) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: errors.izin_nis[0],
+                        });
+                    }
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Terjadi kesalahan. Silakan coba lagi.",
+                    });
+                }
+            },
+        });
+    });
+
+    $("#izin-form-save").on("submit", function (e) {
+        e.preventDefault();
+        if ($("#form_izin_keterangan").val() != null) {
+            $("#form_izin_keterangan").removeClass("is-invalid");
+            $("#error-ket").hide();
+        } else if ($("#form_lama_izin").val() != "") {
+            $("#form_lama_izin").removeClass("is-invalid");
+            $("#error-lama").hide();
+        }
+
+        if (
+            $("#form_izin_keterangan").val() === null &&
+            $("#form_lama_izin").val() === ""
+        ) {
+            $("#form_izin_keterangan").addClass("is-invalid");
+            $("#error-ket").show();
+            $("#form_lama_izin").addClass("is-invalid");
+            $("#error-lama").show();
+        } else if ($("#form_lama_izin").val() === "") {
+            $("#form_lama_izin").addClass("is-invalid");
+            $("#error-lama").show();
+        } else if ($("#form_izin_keterangan").val() === null) {
+            $("#form_izin_keterangan").addClass("is-invalid");
+            $("#error-ket").show();
+        } else {
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Data berhasil disimpan!",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        window.location.href = response.redirect_url;
+                    });
+                },
+            });
+        }
+    });
+
+    $("#izin-delete").on("submit", () => {
+        Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Data berhasil dihapus!",
+        });
+    });
+
+    $("#izin-form-edit").on("submit", function (e) {
+        e.preventDefault();
+        if ($("#e-form_izin_keterangan").val() != null) {
+            $("#e-form_izin_keterangan").removeClass("is-invalid");
+            $("#e-error-ket").hide();
+        } else if ($("#e-form_lama_izin").val() != "") {
+            $("#e-form_lama_izin").removeClass("is-invalid");
+            $("#e-error-lama").hide();
+        }
+
+        if (
+            $("#e-form_izin_keterangan").val() === null &&
+            $("#e-form_lama_izin").val() === ""
+        ) {
+            $("#e-form_izin_keterangan").addClass("is-invalid");
+            $("#e-error-ket").show();
+            $("#e-form_lama_izin").addClass("is-invalid");
+            $("#e-error-lama").show();
+        } else if ($("#e-form_lama_izin").val() === "") {
+            $("#e-form_lama_izin").addClass("is-invalid");
+            $("#e-error-lama").show();
+        } else if ($("#e-form_izin_keterangan").val() === null) {
+            $("#e-form_izin_keterangan").addClass("is-invalid");
+            $("#e-error-ket").show();
+        } else {
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "post",
+                data: $(this).serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Data berhasil diedit",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        window.location.href = response.redirect_url;
+                    });
+                },
+            });
+        }
     });
 });

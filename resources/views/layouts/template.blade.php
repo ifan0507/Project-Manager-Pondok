@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'PWL Laravel Starter Code') }}</title>
+    <title>PP Nurul Huda || Admin</title>
 
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
     <!-- CSS untuk Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,16 +15,16 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
 
     <!-- AdminLTE CSS -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
 
 
     <!-- Script JS yang dibutuhkan (di bagian head sebaiknya hanya untuk library eksternal yang tidak menghalangi rendering) -->
-    <script src="assets/js/jquery-3.7.1.js"></script> <!-- Hanya jika kamu memang membutuhkan jQuery -->
-    <script src="assets/js/sweetalert2.all.min.js"></script> <!-- SweetAlert2 -->
+    <script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script> <!-- Hanya jika kamu memang membutuhkan jQuery -->
+    <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script> <!-- SweetAlert2 -->
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -68,8 +69,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
 
     <!-- Skrip lainnya -->
-    <script src="assets/js/all.min.js"></script> <!-- Skrip kustom tambahan -->
-    <script src="assets/js/myscript.js"></script> <!-- Skrip kustom yang kamu buat -->
+    <script src="{{ asset('assets/js/all.min.js') }}"></script> <!-- Skrip kustom tambahan -->
+    <script src="{{ asset('assets/js/myscript.js') }}"></script> <!-- Skrip kustom yang kamu buat -->
     <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script> <!-- AdminLTE JS -->
     {{-- <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script> <!-- AdminLTE Demo JS --> --}}
 
