@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Hello, world!</title>
+    <title>Ponpes Nurul huda Mangunsari</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -54,6 +54,7 @@
         option {
             padding: 8px;
         }
+        
     </style>
 
 
@@ -65,15 +66,38 @@
     @include('layouts.client.navbar')
 
     @include('layouts.client.header')
-
+    
+{{-- DASHBOARD --}}
     <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
         <section class="content">
             @yield('content')
         </section>
     </div>
+
+{{-- ABOUT --}}
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <section class="about">
+        @yield('about')
+    </section>
+  </div>
+
+{{-- CONTACT --}}
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <section class="contact">
+        @yield('contact')
+    </section>
+</div>
+  
+    
     @include('layouts.client.footer')
 
 
+
+
+
+
+
+    
 
     <script src="{{ asset('assets/js/all.min.js') }}"></script>
     <script src="{{ asset('assets/js/client.js') }}"></script>

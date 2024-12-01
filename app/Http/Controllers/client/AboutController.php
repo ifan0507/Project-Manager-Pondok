@@ -16,7 +16,7 @@ class AboutController extends Controller
             'title' => 'About PP Nurul Huda',
             'list' => 'Mangunsari Tekung Lumajang'
         ];
-        return view('client.about', ['data' => $data]);
+        return view('client.home_about', ['data' => $data]);
     }
 
     /**

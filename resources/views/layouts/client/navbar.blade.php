@@ -34,10 +34,13 @@
                             <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                                 Landing Pages
                             </h6>
-                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+                            <a href="/" class="dropdown-item border-radius-md">
+                                <span>Dashboard</span>
+                            </a>
+                            <a href="/about" class="dropdown-item border-radius-md">
                                 <span>About Us</span>
                             </a>
-                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+                            <a href="/contact" class="dropdown-item border-radius-md">
                                 <span>Contact Us</span>
                             </a>
 
@@ -48,7 +51,7 @@
                                 Page Profile
                             </h6>
 
-                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+                            <a href="/about" class="dropdown-item border-radius-md">
                                 <span>About Us</span>
                             </a>
                             <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">

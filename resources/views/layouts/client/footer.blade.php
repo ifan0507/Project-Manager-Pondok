@@ -3,7 +3,7 @@
         <div class=" row">
             <div class="col-md-3 mb-4 ms-auto">
                 <div>
-                    <a href="https://www.creative-tim.com/product/material-kit">
+                    <a href="/">
                         <img src="{{ asset('assets/img/logo.png') }}" class="mb-3 footer-logo" alt="main_logo">
                     </a>
                 </div>
@@ -14,22 +14,22 @@
                     <h6 class="text-sm">Company</h6>
                     <ul class="flex-column ms-n3 nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/presentation" target="_blank">
+                            <a class="nav-link" href="/about" target="_blank">
                                 About Us
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/templates/free" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Freebies
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/templates/premium" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Premium Tools
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/blog" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Blog
                             </a>
                         </li>
@@ -41,17 +41,17 @@
                     <h6 class="text-sm">Resources</h6>
                     <ul class="flex-column ms-n3 nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://iradesign.io/" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Illustrations
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/bits" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Bits & Snippets
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/affiliates/new" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Affiliate Program
                             </a>
                         </li>
@@ -63,23 +63,23 @@
                     <h6 class="text-sm">Help & Support</h6>
                     <ul class="flex-column ms-n3 nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/contact-us" target="_blank">
+                            <a class="nav-link" href="/about" target="_blank">
+                                About
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact" target="_blank">
                                 Contact Us
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center" target="_blank">
-                                Knowledge Center
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://services.creative-tim.com/?ref=ct-mk2-footer"
+                            <a class="nav-link" href=""
                                 target="_blank">
                                 Custom Development
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/sponsorships" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Sponsorships
                             </a>
                         </li>
@@ -91,19 +91,19 @@
                     <h6 class="text-sm">Legal</h6>
                     <ul class="flex-column ms-n3 nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/terms-of-service/"
+                            <a class="nav-link" href=""
                                 target="_blank">
                                 Terms & Conditions
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/knowledge-center/privacy-policy/"
+                            <a class="nav-link" href=""
                                 target="_blank">
                                 Privacy Policy
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.creative-tim.com/license" target="_blank">
+                            <a class="nav-link" href="" target="_blank">
                                 Licenses (EULA)
                             </a>
                         </li>
@@ -113,11 +113,11 @@
             <div class="col-12">
                 <div class="text-center">
                     <p class="text-dark my-4 text-sm font-weight-normal">
-                        All rights reserved. Copyright ©
+                        Copyright ©
                         <script>
                             document.write(new Date().getFullYear())
-                        </script> Material Kit by <a href="https://www.creative-tim.com"
-                            target="_blank">Creative Tim</a>.
+                        </script> Pondok Pesantren <a href="/"
+                            target="_blank">Nurul Huda Mangunsari</a>.
                     </p>
                 </div>
             </div>
