@@ -22,7 +22,7 @@ class IzinController extends Controller
             'list' => ['Home', 'Welcome']
         ];
 
-        $data = IzinSantri::filter(request(['santri']))->orderBy('created_at', 'asc')->paginate(3)->withQueryString();
+        $data = IzinSantri::filter(request(['santri', 'izin_search']))->orderBy('created_at', 'asc')->paginate(3)->withQueryString();
 
         $activeMenu = 'izin';
         $activeSubMenu = '';
@@ -58,6 +58,26 @@ class IzinController extends Controller
 
     public function showForm()
     {
+        $year = date('Y');
+        $month = date('m');
+
+        // entri terakhir untuk tahun dan bulan yang sama
+        $lastEntry = IzinSantri::whereYear('created_at', $year)
+            ->whereMonth('created_at', $month)
+            ->orderBy('kode_izin', 'desc')
+            ->first();
+
+        //  nomor urutan berikutnya
+        $sequence = 1;
+        if ($lastEntry) {
+            $lastKode = substr($lastEntry->kode_izin, -3);
+            $sequence = intval($lastKode) + 1;
+        }
+
+        // Format NIS
+        $kodeIzin = sprintf('SI%s%s%03d', $year, $month, $sequence);
+
+
         $tanggalIzin = Carbon::now()->format('d/m/Y');
 
         $breadcrumb = (object)[
@@ -71,7 +91,7 @@ class IzinController extends Controller
         if (!$santri) {
             return redirect()->route('izin')->with('error', 'Data santri tidak ditemukan.');
         }
-        return view('admin.perizinan-santri.form-izin', compact('santri'), ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'tgl_izin' => $tanggalIzin]);
+        return view('admin.perizinan-santri.form-izin', compact('santri'), ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'tgl_izin' => $tanggalIzin, 'kode' => $kodeIzin]);
     }
     /**
      * Store a newly created resource in storage.
@@ -88,6 +108,7 @@ class IzinController extends Controller
 
         $izin = IzinSantri::create([
             'santri_id' => $request->izin_santri_id,
+            'kode_izin' => $request->form_izin_kode,
             'keterangan' => $request->form_izin_keterangan,
             'lama_izin' => $request->form_lama_izin,
             'tgl_izin' => $request->tgl_izin,

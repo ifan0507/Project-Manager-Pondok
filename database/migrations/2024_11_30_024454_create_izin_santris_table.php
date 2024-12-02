@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('santri_id')->constrained(
                 table: 'santris'
             )->onDelete('cascade')->onUpdate('cascade');
+            $table->string('kode_izin');
             $table->string('keterangan');
             $table->integer('lama_izin');
             $table->date('tgl_izin');

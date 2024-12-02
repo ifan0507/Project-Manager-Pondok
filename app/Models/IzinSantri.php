@@ -12,7 +12,7 @@ class IzinSantri extends Model
     use HasFactory;
     protected $table = 'izin_santris';
     protected $width = 'santri';
-    protected $fillable = ['santri_id', 'keterangan', 'lama_izin', 'tgl_izin', 'tgl_kembali', 'status'];
+    protected $fillable = ['santri_id', 'kode_izin', 'keterangan', 'lama_izin', 'tgl_izin', 'tgl_kembali', 'status'];
     protected $timestamp = false;
 
     public function santri(): BelongsTo
@@ -22,6 +22,12 @@ class IzinSantri extends Model
 
     public function scopeFilter(Builder $query, array $filters): void
     {
+        $query->when($filters['izin_search'] ?? false, function ($query, $izin_search) {
+            $query->where(function ($query) use ($izin_search) {
+                $query->where('kode_izin', 'like', '%' . $izin_search . '%');
+            });
+        });
+
         $query->when($filters['santri'] ?? false, fn($query, $santri) => $query->whereHas('santri', fn($query) => $query->where('id', $santri)));
     }
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\IzinController;
 use App\Http\Controllers\admin\profile\SejarahController;
 use App\Http\Controllers\client\PendaftaranController;
 use App\Http\Controllers\admin\profile\VisiMisiController;
+use App\Http\Controllers\client\ClientSejarahController;
 
 // API GIT HUB
 Route::get('/api/kabupaten/{provinceId}', function ($provinceId) {
@@ -39,6 +40,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/pendaftaran', [PendaftaranController::class, 'store']);
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::get('/profile/sejarah', [ClientSejarahController::class, 'index'])->name('client.sejarah');
 });
 
 Route::middleware(['auth', 'NoChace'])->group(function () {

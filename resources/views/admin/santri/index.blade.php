@@ -8,7 +8,6 @@
                         <form action="">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <!-- Tombol Tambah Santri dengan jarak yang lebih baik -->
                                     <button type="button" class="btn" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" style="background-color: #060d51; color: white">
                                         Tambah Santri
@@ -16,8 +15,8 @@
 
                                     <!-- Input Pencarian -->
                                     <div class="input-group input-group-sm" style="max-width: 300px;">
-                                        <input type="search" class="form-control" placeholder="Search" id="search"
-                                            name="search" aria-label="Pencarian">
+                                        <input type="search" class="form-control" placeholder="Search Nis, Nik, Nama..."
+                                            id="search" name="search" aria-label="Pencarian">
                                         <button type="submit" class="btn btn-outline-secondary">
                                             <i class="fas fa-search"></i>
                                         </button>
