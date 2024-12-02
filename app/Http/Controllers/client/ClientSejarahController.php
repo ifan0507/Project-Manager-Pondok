@@ -1,25 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Santri;
+use App\Models\Sejarah;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class ClientSejarahController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $dataSantri = Santri::count();
-        $breadcrumb = (object)[
-            'title' => 'Selamat Datang',
-            'list' => ['Home', 'Welcome']
+        $sejarahs = Sejarah::all();
+
+        // Proses deskripsi untuk menampilkan 100 kata
+        foreach ($sejarahs as $sejarah) {
+            $sejarah->short_description = \Illuminate\Support\Str::words($sejarah->deskripsi, 100, '...');
+        }
+
+        $data = (object)[
+            'title' => 'Sejarah PP Nurul Huda',
+            'list' => 'Mangunsari Tekung Lumajang'
         ];
 
-        $activeMenu = 'dashboard';
-        $activeSubMenu = '';
-        return view('admin.dashboard', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'dataSantri' => $dataSantri]);
+        return view('client.sejarah', ['data' => $data, 'sejarahs' => $sejarahs]);
     }
+
 
     /**
      * Show the form for creating a new resource.

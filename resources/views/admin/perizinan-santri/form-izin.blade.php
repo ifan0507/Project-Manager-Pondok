@@ -13,6 +13,11 @@
                             @csrf
                             <div class="card-body">
                                 <input type="hidden" value="{{ $santri->id }}" name="izin_santri_id">
+                                <div class="mb-3">
+                                    <label for="form_izin_kode" class="col-form-label">Kode Izin</label>
+                                    <input type="text" class="form-control" name="form_izin_kode" id="form_izin_kode"
+                                        value="{{ $kode }}" readonly>
+                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="mb-3">

@@ -140,6 +140,10 @@
             <p>Bapak/Ibu/Wali dari santri berikut:</p>
             <table>
                 <tr>
+                    <td>Kode Izin</td>
+                    <td>: {{ $izin->kode_izin }}</td>
+                </tr>
+                <tr>
                     <td>NIS</td>
                     <td>: {{ $izin->santri->nis }}</td>
                 </tr>

@@ -19,6 +19,11 @@
                                 <input type="hidden" id="e-status" name="e-status"
                                     value="{{ old('e-status', $izin->status ?? '') }}">
 
+                                <div class="mb-3">
+                                    <label for="e-form_izin_kode" class="col-form-label">Kode Izin</label>
+                                    <input type="text" class="form-control" name="e-form_izin_kode" id="e-form_izin_kode"
+                                        value="{{ old('e-form_izin_kode', $izin->kode_izin ?? '') }}" readonly>
+                                </div>
                                 <div class="row mb-3">
                                     <div class="col">
                                         <label for="e-form_izin_nis" class="form-label">NIS Santri</label>

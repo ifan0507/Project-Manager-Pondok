@@ -7,10 +7,22 @@
                     <div class="card">
                         <div class="flash-data" data-flashData="{{ session('success') }}"></div>
                         <div class="card-header">
-                            <button type="button" class="btn" style="background-color: #060d51; color: white"
-                                data-bs-toggle="modal" data-bs-target="#modal-izin">
-                                Tambah Perizinan
-                            </button>
+                            <form action="">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn" style="background-color: #060d51; color: white"
+                                        data-bs-toggle="modal" data-bs-target="#modal-izin">
+                                        Tambah Perizinan
+                                    </button>
+
+                                    <div class="input-group input-group-sm" style="max-width: 300px;">
+                                        <input type="search" class="form-control" placeholder="Search Kode Izin"
+                                            id="izin_search" name="izin_search" aria-label="Pencarian">
+                                        <button type="submit" class="btn btn-outline-secondary">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -18,6 +30,7 @@
                                 <table class="table table-bordered table-hover">
                                     <thead style="border-bottom:0;">
                                         <tr style="border-bottom:0;">
+                                            <th style="border-bottom:0;">Kode Izin</th>
                                             <th style="border-bottom:0;">Nis</th>
                                             <th style="border-bottom:0;">Nama Santri</th>
                                             <th style="border-bottom:0;">Keterangan</th>
@@ -30,6 +43,7 @@
                                     <tbody>
                                         @forelse ($izins as $izin)
                                             <tr>
+                                                <td>{{ $izin->kode_izin }}</td>
                                                 <td>{{ $izin->santri->nis }}</td>
                                                 <td>{{ $izin->santri->nama }}</td>
                                                 <td>{{ $izin->keterangan }}</td>
@@ -99,7 +113,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="5" class="text-center">
+                                                <td colspan="8" class="text-center">
                                                     <p>Tidak ada data</p>
                                                 </td>
                                             </tr>

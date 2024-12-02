@@ -8,7 +8,7 @@
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="Toggle navigation">a
             <span class="navbar-toggler-icon mt-2">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -66,7 +66,7 @@
                             <a href="{{ route('client.visi-misi') }}" class="dropdown-item border-radius-md">
                                 <span>Visi Misi</span>
                             </a>
-                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+                            <a href="{{ route('client.sejarah') }}" class="dropdown-item border-radius-md">
                                 <span>Sejarah</span>
                             </a>
                             <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
@@ -74,7 +74,21 @@
                             </a>
                         </div>
 
-                        
+                        <div class="d-lg-none">
+                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                Landing Pages
+                            </h6>
+
+                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+                                <span>Visi Misi</span>
+                            </a>
+                            <a href="{{ route('client.sejarah') }}" class="dropdown-item border-radius-md">
+                                <span>Sejarah</span>
+                            </a>
+                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
+                                <span>Masyakhikh</span>
+                            </a>
+                        </div>
 
                     </div>
                 </li>
@@ -123,8 +137,8 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="material-icons opacity-6 me-2 text-md">description</i>
                         Pendaftaran
-                        <img src="{{ asset('material-kit-master/assets/img/down-arrow-white.svg') }}" alt="down-arrow"
-                            class="arrow ms-auto ms-md-2 d-lg-block d-none">
+                        <img src="{{ asset('material-kit-master/assets/img/down-arrow-white.svg') }}"
+                            alt="down-arrow" class="arrow ms-auto ms-md-2 d-lg-block d-none">
                         <img src="{{ asset('material-kit-master/assets/img/down-arrow-dark.svg') }}" alt="down-arrow"
                             class="arrow ms-auto ms-md-2 d-lg-none d-block">
                     </a>
