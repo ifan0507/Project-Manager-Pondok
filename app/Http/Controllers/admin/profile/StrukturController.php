@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\client;
+namespace App\Http\Controllers\admin\profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class StrukturController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = (object)[
-            'title' => 'About PP Nurul Huda',
-            'list' => 'Mangunsari Tekung Lumajang'
-        ];
-        return view('client.about', ['data' => $data]);
+        //
     }
 
     /**

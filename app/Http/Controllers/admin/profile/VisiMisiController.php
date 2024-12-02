@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\profil;
+namespace App\Http\Controllers\admin\profile;
 
-use App\Http\Controllers\Controller;
 use App\Models\VisiMisi;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class VisiMisiController extends Controller
 {
@@ -19,7 +19,7 @@ class VisiMisiController extends Controller
         $data = VisiMisi::orderBy('created_at', 'asc')->get();
         $activeMenu = 'profile';
         $activeSubMenu = 'visi-misi';
-        return view('profile.visi-misi', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'visiMisis' => $data]);
+        return view('admin.profile.visi-misi', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'visiMisis' => $data]);
     }
 
     /**

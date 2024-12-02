@@ -35,7 +35,7 @@
                                 Landing Pages
                             </h6>
                             <a href="/" class="dropdown-item border-radius-md">
-                                <span>Dashboard</span>
+                                <span>Home</span>
                             </a>
                             <a href="/about" class="dropdown-item border-radius-md">
                                 <span>About Us</span>
@@ -45,21 +45,6 @@
                             </a>
 
                         </div>
-
-                        <div class="d-lg-none">
-                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                Page Profile
-                            </h6>
-
-                            <a href="/about" class="dropdown-item border-radius-md">
-                                <span>About Us</span>
-                            </a>
-                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
-                                <span>Contact Us</span>
-                            </a>
-
-                        </div>
-
                     </div>
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
@@ -78,7 +63,7 @@
                             <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                                 Page Profile
                             </h6>
-                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+                            <a href="{{ route('client.visi-misi') }}" class="dropdown-item border-radius-md">
                                 <span>Visi Misi</span>
                             </a>
                             <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
@@ -89,21 +74,7 @@
                             </a>
                         </div>
 
-                        <div class="d-lg-none">
-                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                Landing Pages
-                            </h6>
-
-                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
-                                <span>Visi Misi</span>
-                            </a>
-                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
-                                <span>Sejarah</span>
-                            </a>
-                            <a href="./pages/contact-us.html" class="dropdown-item border-radius-md">
-                                <span>Masyakhikh</span>
-                            </a>
-                        </div>
+                        
 
                     </div>
                 </li>

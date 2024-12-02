@@ -1,12 +1,12 @@
 @extends('layouts.client.template')
-@section('contact')
+@section('content')
 <section>
     <div class="page-header min-vh-100">
       <div class="container">
         <div class="row">
           <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
             <div class="position-relative h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" 
-                 style="background-image: url('{{ asset('assets/img/dokumentasi1.jpg') }}'); background-size: cover;" 
+                 style="background-image: url('{{ asset('assets/img/contact.jpg') }}'); background-size: cover;" 
                  loading="lazy">
             </div>
           </div>

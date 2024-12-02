@@ -27,7 +27,7 @@ class PendaftaranController extends Controller
             ->orderBy('nis', 'desc')
             ->first();
 
-        // Tentukan nomor urutan berikutnya
+        //  nomor urutan berikutnya
         $sequence = 1;
         if ($lastEntry) {
             $lastNis = substr($lastEntry->nis, -3);
@@ -42,7 +42,7 @@ class PendaftaranController extends Controller
             ->orderBy('no_daftar', 'desc')
             ->first();
 
-        // Tentukan nomor urutan berikutnya
+        // nomor urutan berikutnya
         $sequence = 1;
         if ($lastEntry) {
             $lastNoDaftar = substr($lastEntry->no_daftar, -3);
@@ -78,7 +78,7 @@ class PendaftaranController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'jenis_kelamin' => ['required'],
             'tmp_lahir' => ['required', 'string', 'max:255'],
-            'tgl_lahir' => ['required', 'date'],
+            'tgl_lahir' => ['required'],
             'provinsi' => ['required'],
             'kabupaten' => ['required'],
             'kecamatan' => ['required'],

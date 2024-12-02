@@ -409,10 +409,8 @@
     </section>
     <script>
         if (document.querySelector(".datepicker")) {
-            // Initialize flatpickr on the input with class "datepicker"
             flatpickr(".datepicker", {
-                // Configuration options
-                dateFormat: "d/m/Y", // Format date as dd/mm/yyyy
+                dateFormat: "Y-m-d", // Format date as dd/mm/yyyy
                 allowInput: true, // Allow manual input
                 defaultDate: null, // No default date, placeholder remains
                 altInput: true, // Show alternate input with human-friendly date

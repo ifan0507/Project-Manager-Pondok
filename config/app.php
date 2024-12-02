@@ -1,5 +1,7 @@
 <?php
 
+use Barryvdh\DomPDF\Facade;
+
 return [
 
     /*

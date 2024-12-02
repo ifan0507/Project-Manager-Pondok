@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\profil;
+namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MasyayinkController extends Controller
+class ClientVisiMisiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $data = (object)[
+            'title' => 'About PP Nurul Huda',
+            'list' => 'Mangunsari Tekung Lumajang'
+        ];
+        return view('client.visimisi', ['data' => $data]);
     }
 
     /**
@@ -20,7 +24,7 @@ class MasyayinkController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**

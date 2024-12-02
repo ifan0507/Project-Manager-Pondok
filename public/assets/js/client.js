@@ -20,7 +20,7 @@ $(document).ready(function () {
                         Swal.fire({
                             icon: "success",
                             title: "Berhasil!",
-                            text: "Data berhasil disimpan!",
+                            text: "Data berhasil dikirm!",
                         }).then(() => {
                             window.location.href = "/";
                         });

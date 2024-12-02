@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>Ponpes Nurul huda Mangunsari</title>
+
+    <title>PP Nurul Huda</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -55,6 +57,28 @@
             padding: 8px;
         }
         
+       
+
+      
+
+       .section.visi {
+           background-color: #e0f7fa;
+           text-align: center;
+       }
+
+       .section.misi {
+           background-color: #ffecb3;
+           text-align: center;
+       }
+
+       .section h2 {
+           margin-bottom: 20px;
+           font-size: 24px;
+       }
+
+       
+   
+        
     </style>
 
 
@@ -74,19 +98,6 @@
         </section>
     </div>
 
-{{-- ABOUT --}}
-<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <section class="about">
-        @yield('about')
-    </section>
-  </div>
-
-{{-- CONTACT --}}
-<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
-    <section class="contact">
-        @yield('contact')
-    </section>
-</div>
   
     
     @include('layouts.client.footer')
