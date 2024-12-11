@@ -24,8 +24,8 @@
                                     <p class="text-white" style="opacity: 0;"> You will save a lot of time going
                                         from
                                         prototyping to full-functional code because all elements are implemented.</p>
-                                    <a href=".//sections/page-sections/hero-sections.html" target="_blank"
-                                        class="btn btn-white btn-sm w-50 mx-auto mt-3">Daftar Sekarang!</a>
+                                    <a href="/pendaftaran" class="btn btn-white btn-sm w-50 mx-auto mt-3">Daftar
+                                        Sekarang!</a>
                                 </div>
                             </div>
                         </div>

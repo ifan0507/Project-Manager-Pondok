@@ -13,7 +13,7 @@ class ClientVisiMisiController extends Controller
     public function index()
     {
         $data = (object)[
-            'title' => 'About PP Nurul Huda',
+            'title' => 'Visi Misi PP Nurul Huda',
             'list' => 'Mangunsari Tekung Lumajang'
         ];
         return view('client.visimisi', ['data' => $data]);
@@ -24,7 +24,7 @@ class ClientVisiMisiController extends Controller
      */
     public function create()
     {
-       //
+        //
     }
 
     /**

@@ -2,33 +2,29 @@
 <html lang="en">
 
 <head>
-
     <title>PP Nurul Huda</title>
-    <!-- Required meta tags -->
+
+    <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- Material Icons -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo.png') }}">
+
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
     <!-- Material Kit CSS -->
     <link href="{{ asset('material-kit-master/assets/css/material-kit.css?v=3.0.0') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
-    <script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script> <!-- Hanya jika kamu memang membutuhkan jQuery -->
-    <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script> <!-- SweetAlert2 -->
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
     <style>
-        .logo-navbar {
-            height: 60px;
-            width: auto;
-            margin-right: 10px;
-        }
-
         .footer {
             color: white !important;
         }
@@ -56,89 +52,138 @@
         option {
             padding: 8px;
         }
-        
-       
 
-      
+        .section.visi {
+            background-color: #e0f7fa;
+            text-align: center;
+        }
 
-       .section.visi {
-           background-color: #e0f7fa;
-           text-align: center;
-       }
+        .section.misi {
+            background-color: #ffecb3;
+            text-align: center;
+        }
 
-       .section.misi {
-           background-color: #ffecb3;
-           text-align: center;
-       }
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
 
-       .section h2 {
-           margin-bottom: 20px;
-           font-size: 24px;
-       }
+        .logo-navbar {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
 
-       
-   
-        
+        .page-header {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            /* Membuat tinggi slider 80% dari viewport */
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Membuat gambar menutupi area slider tanpa distorsi */
+            z-index: 0;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Mask gelap untuk overlay */
+            z-index: 1;
+        }
+
+        .container.text-center {
+            position: relative;
+            z-index: 2;
+            /* Konten berada di atas mask */
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: white !important;
+            z-index: 3;
+        }
+
+        /* Card content yang berada di bawah header, sedikit menutupi header */
+        .card.card-body {
+            margin-top: -50px;
+            /* Mengangkat card ke atas sebanyak 50px */
+            position: relative;
+            /* Untuk memastikan card berada di dalam alur dokumen */
+            z-index: 1;
+            /* Agar card berada di atas konten lainnya jika perlu */
+            border-radius: 15px;
+            /* Menambahkan sudut pada card */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Bayangan untuk card */
+        }
+
+        /* Memberikan ruang tambahan pada header agar tidak terpotong */
+        /* .page-header {
+            margin-top: 80px;
+        } */
+
+        /* Menambahkan jarak di bawah untuk perangkat mobile */
+        @media (max-width: 768px) {
+            .card.card-body {
+                margin-top: -20px;
+                /* Mengurangi jarak untuk tampilan mobile */
+            }
+        }
     </style>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
-
+    <!-- Navbar -->
     @include('layouts.client.navbar')
 
+    <!-- Header -->
     @include('layouts.client.header')
-    
-{{-- DASHBOARD --}}
+
+
+
+    <!-- Main Content -->
     <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
         <section class="content">
             @yield('content')
         </section>
     </div>
 
-  
-    
+    <!-- Footer -->
     @include('layouts.client.footer')
 
-
-
-
-
-
-
-    
-
-    <script src="{{ asset('assets/js/all.min.js') }}"></script>
-    <script src="{{ asset('assets/js/client.js') }}"></script>
-    <!--   Core JS Files   -->
-    <script src="{{ asset('material-kit-master/assets/js/core/popper.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('material-kit-master/assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('material-kit-master/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-
-    <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
-    <script src="{{ asset('material-kit-master/assets/js/plugins/countup.min.js') }}"></script>
-
-    <script src="{{ asset('material-kit-master/assets/js/plugins/choices.min.js') }}"></script>
-
-    <script src="{{ asset('material-kit-master/assets/js/plugins/prism.min.js') }}"></script>
-    <script src="{{ asset('material-kit-master/assets/js/plugins/highlight.min.js') }}"></script>
-
-    <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-    <script src="{{ asset('material-kit-master/assets/js/plugins/rellax.min.js') }}"></script>
-    <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-    <script src="{{ asset('material-kit-master/assets/js/plugins/tilt.min.js') }}"></script>
-    <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-    <script src="{{ asset('material-kit-master/assets/js/plugins/choices.min.js') }}"></script>
-
-    <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
-    <!--  Google Maps Plugin    -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-    <script src="{{ asset('material-kit-master/assets/js/material-kit.min.js?v=3.1.0') }}" type="text/javascript"></script>
-
-
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('material-kit-master/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('material-kit-master/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('material-kit-master/assets/js/material-kit.min.js?v=3.1.0') }}"></script>
 </body>
 
 </html>

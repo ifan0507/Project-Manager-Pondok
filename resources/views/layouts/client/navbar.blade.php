@@ -8,7 +8,7 @@
         </a>
         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
-            aria-label="Toggle navigation">a
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon mt-2">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -43,7 +43,21 @@
                             <a href="/contact" class="dropdown-item border-radius-md">
                                 <span>Contact Us</span>
                             </a>
+                        </div>
+                        <div class="d-lg-none">
+                            <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                Landing Pages
+                            </h6>
 
+                            <a href="/" class="dropdown-item border-radius-md">
+                                <span>Home</span>
+                            </a>
+                            <a href="/about" class="dropdown-item border-radius-md">
+                                <span>About Us</span>
+                            </a>
+                            <a href="/contact" class="dropdown-item border-radius-md">
+                                <span>Contact</span>
+                            </a>
                         </div>
                     </div>
                 </li>
@@ -79,7 +93,7 @@
                                 Landing Pages
                             </h6>
 
-                            <a href="./pages/about-us.html" class="dropdown-item border-radius-md">
+                            <a href="{{ route('client.visi-misi') }}" class="dropdown-item border-radius-md">
                                 <span>Visi Misi</span>
                             </a>
                             <a href="{{ route('client.sejarah') }}" class="dropdown-item border-radius-md">
