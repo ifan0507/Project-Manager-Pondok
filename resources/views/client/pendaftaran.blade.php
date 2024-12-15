@@ -239,7 +239,7 @@
                                                             <option value="tamat_sma/sederajat">TAMAT SMA/SEDERAJAT
                                                             </option>
                                                             <option value="diploma">DIPLOMA</option>
-                                                            <option value="'sarjana">SARJANA</option>
+                                                            <option value="sarjana">SARJANA</option>
                                                             <option value="lainnya">LAINNYA</option>
                                                         </select>
                                                     </div>
@@ -337,7 +337,7 @@
                                                             <option value="tamat_sma/sederajat">TAMAT SMA/SEDERAJAT
                                                             </option>
                                                             <option value="diploma">DIPLOMA</option>
-                                                            <option value="'sarjana">SARJANA</option>
+                                                            <option value="sarjana">SARJANA</option>
                                                             <option value="lainnya">LAINNYA</option>
                                                         </select>
                                                     </div>

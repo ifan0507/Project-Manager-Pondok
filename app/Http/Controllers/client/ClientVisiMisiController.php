@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Models\VisiMisi;
 use Illuminate\Http\Request;
 
 class ClientVisiMisiController extends Controller
@@ -12,11 +13,12 @@ class ClientVisiMisiController extends Controller
      */
     public function index()
     {
+        $visiMisi = VisiMisi::all();
         $data = (object)[
             'title' => 'Visi Misi PP Nurul Huda',
             'list' => 'Mangunsari Tekung Lumajang'
         ];
-        return view('client.visimisi', ['data' => $data]);
+        return view('client.visimisi', ['data' => $data, 'visiMisi' => $visiMisi]);
     }
 
     /**

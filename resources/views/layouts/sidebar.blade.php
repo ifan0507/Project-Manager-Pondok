@@ -48,7 +48,8 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/santri') }}" class="nav-link {{ $activeMenu == 'santri' ? 'active' : '' }}">
+                    <a href="{{ url('/santri') }}"
+                        class="nav-link {{ $activeMenu == 'santri' ? 'active' : '' }} dataSantri">
                         <i class="nav-icon far fa-user"></i>
                         <p>Data Santri</p>
                     </a>
@@ -66,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('logout') }}" class="nav-link">
+                    <a href="{{ url('logout') }}" class="nav-link logout">
                         <i class="nav-icon fa-solid fa-right-from-bracket"></i>
                         <p>Logout</p>
                     </a>
@@ -75,3 +76,65 @@
         </nav>
     </div>
 </aside>
+
+<script>
+    $(document).ready(function() {
+        $(".dataSantri").on("click", function(e) {
+            e.preventDefault();
+            const targetUrl = $(this).attr("href");
+
+            Swal.fire({
+                title: "Memproses...",
+                html: "Mohon tunggu sebentar, data sedang dimuat.",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+
+            $.ajax({
+                url: targetUrl,
+                method: "GET",
+                success: function(response) {
+                    Swal.close();
+                    window.location.href = targetUrl;
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Gagal Memuat Data",
+                        text: "Terjadi kesalahan saat memuat data. Silakan coba lagi.",
+                    });
+                },
+            });
+        });
+
+        $(".logout").on("click", function(e) {
+            e.preventDefault();
+            const logoutUrl = $(this).attr("href");
+            $("body").append(`
+            <div id="loadingOverlay" style="
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            ">
+                <img src="{{ asset('assets/img/loading.gif') }}" alt="Loading..." style="
+                    width: 400px;
+                    height: 400px;
+                    background: transparent;
+                ">
+            </div>
+        `);
+            setTimeout(function() {
+                window.location.href = logoutUrl;
+            }, 2000);
+        });
+    });
+</script>

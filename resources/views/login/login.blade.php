@@ -23,6 +23,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('material-kit-master/assets/css/material-kit.css?v=3.1.0') }}"
         rel="stylesheet" />
+    <script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script>
 </head>
 
 <body class="sign-in-basic">
@@ -82,6 +83,43 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("form").on("submit", function(e) {
+                e.preventDefault();
+
+                $("body").append(`
+                    <div id="loadingOverlay" style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background:  rgba(255, 255, 255, 0.8);
+                        z-index: 9999;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    ">
+                        <img src="{{ asset('assets/img/loading.gif') }}" alt="Loading..." style="
+                            width: 400px;
+                            height: 400px;
+                            background: transparent;
+                        ">
+                    </div>
+                `);
+
+                setTimeout(function() {
+                    $("form")[0].submit();
+                }, 2000);
+            });
+        });
+    </script>
+
+
+
+    </script>
+
     <!--   Core JS Files   -->
     <script src="{{ asset('material-kit-master/assets/js/core/popper.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('material-kit-master/assets/js/core/bootstrap.min.js') }}" type="text/javascript"></script>

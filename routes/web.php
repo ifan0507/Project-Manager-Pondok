@@ -41,10 +41,13 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/profile/visi-misi', [ClientVisiMisiController::class, 'index'])->name('client.visi-misi');
     Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
     Route::post('/pendaftaran', [PendaftaranController::class, 'store']);
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/profile/sejarah', [ClientSejarahController::class, 'index'])->name('client.sejarah');
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
 });
+
+
+
 
 Route::middleware(['auth', 'NoChace'])->group(function () {
 
@@ -53,12 +56,13 @@ Route::middleware(['auth', 'NoChace'])->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
     // Route Santri
-    Route::get('/santri', [SantriController::class, 'index']);
+    Route::get('/santri', [SantriController::class, 'index'])->name('santri.index');
     Route::post('/santri/save', [SantriController::class, 'store']);
     Route::delete('/santri/{id}', [SantriController::class, 'destroy'])->name('santri.delete');
     Route::get('/santri/{id}', [SantriController::class, 'edit']);
     Route::put('/santri/{id}', [SantriController::class, 'update']);
     Route::get('/santri/detail/{id}', [SantriController::class, 'show']);
+    Route::post('konfirmasi/{id}', [SantriController::class, 'konfirmasiPendaftaran'])->name('konfirmasi.pendaftaran');
 
     // Route Management Profile
     Route::get('/visi-misi', [VisiMisiController::class, 'index']);

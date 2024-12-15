@@ -22,7 +22,12 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="{{ asset('assets/js/jquery-3.7.1.js') }}"></script> <!-- Hanya jika kamu memang membutuhkan jQuery -->
+    <script src="{{ asset('assets/js/sweetalert2.all.min.js') }}"></script> <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <!-- Custom CSS -->
     <style>
         .footer {
@@ -181,6 +186,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/js/client.js') }}"></script>
     <script src="{{ asset('material-kit-master/assets/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('material-kit-master/assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('material-kit-master/assets/js/material-kit.min.js?v=3.1.0') }}"></script>

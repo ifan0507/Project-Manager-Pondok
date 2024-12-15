@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('rt');
             $table->string('rw');
+            $table->enum('konfirmasi', ['sudah dikonfirmasi', 'belum dikonfirmasi'])->default('belum dikonfirmasi');
             $table->timestamps();
         });
     }

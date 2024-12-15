@@ -45,26 +45,69 @@
                                                 <td>{{ $santri->nik }}</td>
                                                 <td>{{ $santri->nama }}</td>
                                                 <td>{{ $santri->jenis_kelamin }}</td>
+                                                <style>
+                                                    .btn-group .btn {
+                                                        margin-right: 4px;
+                                                    }
+
+                                                    .btn-group .btn:last-child {
+                                                        margin-right: 0;
+                                                    }
+                                                </style>
                                                 <td>
-                                                    <div class="d-inline-flex gap-2">
+                                                    {{-- <div class="btn-group" role="group" aria-label="Action buttons">
+                                                        
+                                                        
+                                                            @method('delete')
+                                                            @csrf
+                                                           
+                                                        </form>
+                                                       
+                                                          
+                                                                @csrf
+                                                              
+                                                            </form>
+                                                        @else
+                                                            <div class="d-none"></div>
+                                                        @endif
+                                                    </div> --}}
+
+                                                    <div class="btn-group" role="group" aria-label="Action buttons">
+                                                        <!-- Edit Button -->
                                                         <button type="button" class="btn-edit btn btn-sm"
                                                             style="background-color: #060d51; color: white"
                                                             data-id="{{ $santri->id }}"><i
                                                                 class="fa-regular fa-pen-to-square"></i></button>
+                                                        <!-- Delete Button -->
                                                         <form action="{{ route('santri.delete', ['id' => $santri->id]) }}"
                                                             method="post" id="form-delete" class="form-delete m-0">
                                                             @method('delete')
                                                             @csrf
                                                             <button type="submit" name="btn-hapus"
                                                                 style="background-color: #060d51; color: white"
-                                                                class="btn-hapus btn btn-sm"><i
+                                                                class="btn-hapus btn btn-sm mr-1"><i
                                                                     class="fa-solid fa-trash-can"></i></button>
                                                         </form>
+
                                                         <button type="button" class="btn-detail btn btn-sm"
                                                             style="background-color: #060d51; color: white"
                                                             data-id="{{ $santri->id }}"><i
                                                                 class="fa-solid fa-circle-info"></i></button>
+
+                                                        @if ($santri->konfirmasi == 'belum dikonfirmasi')
+                                                            <form
+                                                                action="{{ route('konfirmasi.pendaftaran', ['id' => $santri->id]) }}"
+                                                                method="post" class="form-konfirmasi m-0">
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-success btn-sm">
+                                                                    <i class="fa-solid fa-check"></i>
+                                                                </button>
+                                                            </form>
+                                                        @else
+                                                            <div class="d-none"></div>
+                                                        @endif
                                                     </div>
+
                                                 </td>
                                             </tr>
                                         @empty

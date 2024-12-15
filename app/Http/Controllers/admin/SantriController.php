@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 
+
 class SantriController extends Controller
 {
     public function index()
@@ -67,6 +68,80 @@ class SantriController extends Controller
     }
 
 
+    public function konfirmasiPendaftaran($id)
+    {
+        try {
+            $santri = Santri::with(['ortu', 'RiwayatSantri'])->findOrFail($id);
+
+            // Format nomor telepon
+            $nomorTelepon = $this->formatNomorTelepon($santri->ortu->no_tlp);
+
+            $pesan = <<<EOT
+    Assalamualaikum Wr. Wb.
+    
+    Dengan hormat, 
+    Kami menginformasikan bahwa pendaftaran atas nama:
+    Nomor Pendaftaran : *{$santri->no_daftar}*
+    Nama Santri : *{$santri->nama}*
+    
+    telah *dikonfirmasi* oleh pihak sekolah. 
+    
+    Selanjutnya, kami mohon agar Bapak/Ibu/Wali santri segera mengurus administrasi pembayaran sesuai dengan ketentuan yang berlaku.
+    
+    Jika ada pertanyaan, silakan hubungi kami di nomor WhatsApp resmi sekolah.
+    
+    Terima kasih atas perhatiannya.
+    
+    Wassalamualaikum Wr. Wb.
+    EOT;
+
+            // Kirim pesan WhatsApp melalui bot
+            $response = Http::post('http://localhost:3000/send-message', [
+                'nomor' => $nomorTelepon,
+                'pesan' => $pesan,
+            ]);
+
+            // Validasi jika respon berhasil
+            if ($response->successful()) {
+                $santri->where('id', $id)->update([
+                    'konfirmasi' => 'sudah dikonfirmasi',
+                ]);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Pesan WhatsApp berhasil dikirim dan pendaftaran telah dikonfirmasi.',
+                    'redirect_url' => route('santri.index'),
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Gagal mengirim pesan WhatsApp. Silakan coba lagi.',
+                ], 500);
+            }
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    private function formatNomorTelepon($nomor)
+    {
+        // Menghilangkan karakter non-digit
+        $nomor = preg_replace('/\D/', '', $nomor);
+
+        // Mengubah no wa jika diawali 0 menjadi 62
+        if (substr($nomor, 0, 1) === '0') {
+            $nomor = '62' . substr($nomor, 1);
+        }
+
+        return $nomor;
+    }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -102,7 +177,7 @@ class SantriController extends Controller
             'no_ktp_ibu' => ['required'],
             'pendidikan_ibu' => ['required'],
             'pekerjaan_ibu' => ['required'],
-            'no_tlp' => ['required'],
+            'no_tlp' => ['required', 'max:13'],
         ], [
             'thn_pelajaran.required' => 'Tahun pelajaran harus dipilih',
             'nisn.required' => 'NISN tidak boleh kosong',
@@ -133,6 +208,7 @@ class SantriController extends Controller
             'pendidikan_ibu.required' => 'Pendidikan ibu harus dipilih',
             'pekerjaan_ibu.required' => 'Pekerjaan ibu harus dipilih',
             'no_tlp.required' => 'No. Telp harus diisi',
+            'no_tlp.max' => 'No. Telp maksimal 13 karakter',
         ]);
 
         try {
@@ -156,6 +232,7 @@ class SantriController extends Controller
                 'alamat' => $request->input('alamat'),
                 'rt' => $request->input('rt'),
                 'rw' => $request->input('rw'),
+                'konfirmasi' => 'belum dikonfirmasi'
             ]);
 
             $ortu = Ortu::create([
@@ -243,7 +320,7 @@ class SantriController extends Controller
             'e-no_ktp_ibu' => ['required'],
             'e-pendidikan_ibu' => ['required'],
             'e-pekerjaan_ibu' => ['required'],
-            'e-no_tlp' => ['required'],
+            'e-no_tlp' => ['required', 'max:13', 'number'],
         ], [
             'e-thn_pelajaran.required' => 'Tahun pelajaran harus dipilih',
             'e-nisn.required' => 'NISN tidak boleh kosong',
@@ -274,6 +351,8 @@ class SantriController extends Controller
             'e-pendidikan_ibu.required' => 'Pendidikan ibu harus dipilih',
             'e-pekerjaan_ibu.required' => 'Pekerjaan ibu harus dipilih',
             'e-no_tlp.required' => 'No. Telp harus diisi',
+            'e-no_tlp.number' => 'No. Telp harus berupa angka',
+            'e-no_tlp.max' => 'No. Telp maksimal 13 karakter',
         ]);
 
         $id_ortu = $request->input('e-id-ortu');

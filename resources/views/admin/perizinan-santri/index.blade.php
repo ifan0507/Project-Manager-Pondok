@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn" style="background-color: #060d51; color: white">
                             <i class="fa-solid fa-magnifying-glass"></i> Cari
                         </button>
@@ -175,6 +175,7 @@
                     confirmButtonColor: "#25c450",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Benar",
+                    reverseButtons: true,
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $(this).closest("#form-kembali").submit();

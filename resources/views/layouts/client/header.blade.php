@@ -30,6 +30,15 @@
                     <h3 class="text-white">{{ $data->list }}</h3>
                 </div>
             </div>
+
+            <div class="swiper-slide">
+                <img class="slide-image" src="{{ asset('assets/img/Pengurus.jpeg') }}" alt="Slide 3">
+                <div class="mask"></div>
+                <div class="container text-center">
+                    <h1 class="text-white">{{ $data->title }}</h1>
+                    <h3 class="text-white">{{ $data->list }}</h3>
+                </div>
+            </div>
         </div>
 
     </div>

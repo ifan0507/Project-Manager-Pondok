@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('no_ktp_ibu');
             $table->string('pendidikan_ibu');
             $table->string('pekerjaan_ibu');
-            $table->string('no_tlp');
+            $table->string('no_tlp', 13);
             $table->timestamps();
         });
     }

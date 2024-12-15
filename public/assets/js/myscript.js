@@ -17,9 +17,11 @@ $(document).ready(function () {
                 location.reload();
                 $("#form-modal")[0].reset();
                 Swal.fire({
+                    confirmButtonColor: "#18a342",
                     icon: "success",
                     title: "Berhasil!",
                     text: "Data berhasil disimpan!",
+                    confirmButtonText: "OK",
                 });
             },
             error: function (xhr) {
@@ -50,9 +52,11 @@ $(document).ready(function () {
                 location.reload();
                 $("#form-modal-edit")[0].reset();
                 Swal.fire({
+                    confirmButtonColor: "#18a342",
                     icon: "success",
                     title: "Berhasil!",
                     text: "Data berhasil diedit!",
+                    confirmButtonText: "OK",
                 });
             },
             error: function (xhr) {
@@ -74,13 +78,14 @@ $(document).ready(function () {
     $(".btn-hapus").on("click", function (e) {
         e.preventDefault();
         Swal.fire({
-            title: "Apakah anda yaqin?",
+            title: "Apakah anda yakin?",
             text: "data dihapus",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#18a342",
             cancelButtonColor: "#d33",
             confirmButtonText: "Hapus Data!",
+            reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
                 $(this).closest(".form-delete").submit();
@@ -89,9 +94,11 @@ $(document).ready(function () {
     });
     $(".form-delete").on("submit", () => {
         Swal.fire({
+            confirmButtonColor: "#18a342",
             icon: "success",
             title: "Berhasil!",
             text: "Data berhasil dihapus!",
+            confirmButtonText: "OK",
         });
     });
 
@@ -312,9 +319,11 @@ $(document).ready(function () {
                 location.reload();
                 $("#form-visi")[0].reset();
                 Swal.fire({
+                    confirmButtonColor: "#18a342",
                     icon: "success",
                     title: "Berhasil!",
                     text: "Data berhasil disimpan!",
+                    confirmButtonText: "OK",
                 });
             },
             error: function (xhr) {
@@ -350,42 +359,44 @@ $(document).ready(function () {
 
     $("#form-edit-visi").on("submit", function (e) {
         e.preventDefault();
-        if ($("#e-visi").val() == "" && $("#e-visi").val() == "") {
+        if ($("#e-visi").val() == "" && $("#e-misi").val() == "") {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Silahkan isi Visi Atau Misi!",
             });
-            return false;
+        } else {
+            $.ajax({
+                type: "PUT",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                success: function (response) {
+                    $("#modal-edit-visi").modal("hide");
+                    location.reload();
+                    $("#form-edit-visi")[0].reset();
+                    Swal.fire({
+                        confirmButtonColor: "#18a342",
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Data berhasil diedit!",
+                        confirmButtonText: "OK",
+                    });
+                },
+                error: function (xhr) {
+                    // Menampilkan pesan kesalahan jika ada
+                    var errors = xhr.responseJSON.errors;
+                    var errorString = "";
+                    for (var error in errors) {
+                        errorString += errors[error][0] + "\n";
+                    }
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errorString,
+                    });
+                },
+            });
         }
-        $.ajax({
-            type: "PUT",
-            url: $(this).attr("action"),
-            data: $(this).serialize(),
-            success: function (response) {
-                $("#modal-edit-visi").modal("hide");
-                location.reload();
-                $("#form-edit-visi")[0].reset();
-                Swal.fire({
-                    icon: "success",
-                    title: "Berhasil!",
-                    text: "Data berhasil diedit!",
-                });
-            },
-            error: function (xhr) {
-                // Menampilkan pesan kesalahan jika ada
-                var errors = xhr.responseJSON.errors;
-                var errorString = "";
-                for (var error in errors) {
-                    errorString += errors[error][0] + "\n";
-                }
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorString,
-                });
-            },
-        });
     });
 
     // submit sejarah
@@ -403,9 +414,11 @@ $(document).ready(function () {
                 location.reload();
                 $("#sejarah-form")[0].reset();
                 Swal.fire({
+                    confirmButtonColor: "#18a342",
                     icon: "success",
                     title: "Berhasil!",
                     text: "Data berhasil disimpan!",
+                    confirmButtonText: "OK",
                 });
             },
             error: function (xhr) {
@@ -426,9 +439,11 @@ $(document).ready(function () {
 
     $("#form-delete-sejarah").on("submit", () => {
         Swal.fire({
+            confirmButtonColor: "#18a342",
             icon: "success",
             title: "Berhasil!",
             text: "Data berhasil dihapus!",
+            confirmButtonText: "OK",
         });
     });
 
@@ -464,13 +479,14 @@ $(document).ready(function () {
                 location.reload();
                 $("#form-edit-sejarah")[0].reset();
                 Swal.fire({
+                    confirmButtonColor: "#18a342",
                     icon: "success",
                     title: "Berhasil!",
                     text: "Data berhasil disimpan!",
+                    confirmButtonText: "OK",
                 });
             },
             error: function (xhr) {
-                // Menampilkan pesan kesalahan jika ada
                 var errors = xhr.responseJSON.errors;
                 var errorString = "";
                 for (var error in errors) {
@@ -548,6 +564,7 @@ $(document).ready(function () {
                 data: $(this).serialize(),
                 success: function (response) {
                     Swal.fire({
+                        confirmButtonColor: "#18a342",
                         icon: "success",
                         title: "Berhasil!",
                         text: "Data berhasil disimpan!",
@@ -562,9 +579,11 @@ $(document).ready(function () {
 
     $("#izin-delete").on("submit", () => {
         Swal.fire({
+            confirmButtonColor: "#18a342",
             icon: "success",
             title: "Berhasil!",
             text: "Data berhasil dihapus!",
+            confirmButtonText: "OK",
         });
     });
 
@@ -599,6 +618,7 @@ $(document).ready(function () {
                 data: $(this).serialize(),
                 success: function (response) {
                     Swal.fire({
+                        confirmButtonColor: "#18a342",
                         icon: "success",
                         title: "Berhasil!",
                         text: "Data berhasil diedit",
@@ -609,5 +629,57 @@ $(document).ready(function () {
                 },
             });
         }
+    });
+
+    $(".form-konfirmasi").on("submit", function (e) {
+        e.preventDefault();
+        let timerInterval;
+        Swal.fire({
+            title: "Memproses...",
+            html: "Mohon tunggu sebentar",
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            },
+        });
+
+        $.ajax({
+            url: $(this).attr("action"),
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+                Swal.close();
+                if (response.success) {
+                    Swal.fire({
+                        confirmButtonColor: "#18a342",
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Pesan WhatsApp berhasil dikirim dan pendaftaran telah dikonfirmasi.",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        window.location.href = response.redirect_url;
+                    });
+                }
+            },
+            error: function (xhr) {
+                Swal.close();
+                let errorMessage = "Terjadi kesalahan. Silakan coba lagi.";
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                }
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+            },
+        });
     });
 });
