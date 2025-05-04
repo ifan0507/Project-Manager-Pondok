@@ -111,7 +111,7 @@
 
                 setTimeout(function() {
                     $("form")[0].submit();
-                }, 2000);
+                }, 1000);
             });
         });
     </script>

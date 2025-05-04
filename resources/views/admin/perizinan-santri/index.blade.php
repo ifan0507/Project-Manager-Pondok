@@ -148,7 +148,7 @@
                         <div class="mb-3">
                             <label for="izin_nis" class="col-form-label">NIS Santri <span class="required"
                                     style="color:red">*</span></label>
-                            <input type="text" class="form-control" name="izin_nis" id="izin_nis"
+                            <input type="text" class="form-control" name="izin_nis" id="izn_nis"
                                 placeholder="Masukkan NIS">
                         </div>
                     </div>
@@ -165,6 +165,7 @@
 
     <script>
         $(document).ready(function() {
+
             $(".btn-izin-kembali").on("click", function(e) {
                 e.preventDefault();
                 Swal.fire({

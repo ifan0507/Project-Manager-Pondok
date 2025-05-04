@@ -8,36 +8,188 @@ $(document).ready(function () {
     // submit form
     $("#form-modal").on("submit", function (e) {
         e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: $(this).attr("action"),
-            data: $(this).serialize(),
-            success: function (response) {
-                $("#exampleModal").modal("hide");
-                location.reload();
-                $("#form-modal")[0].reset();
-                Swal.fire({
-                    confirmButtonColor: "#18a342",
-                    icon: "success",
-                    title: "Berhasil!",
-                    text: "Data berhasil disimpan!",
-                    confirmButtonText: "OK",
-                });
-            },
-            error: function (xhr) {
-                // Menampilkan pesan kesalahan jika ada
-                var errors = xhr.responseJSON.errors;
-                var errorString = "";
-                for (var error in errors) {
-                    errorString += errors[error][0] + "\n";
-                }
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: errorString,
-                });
-            },
-        });
+        if ($("#thn_pelajaran").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Tahun pelajaran harus dipilih!",
+            });
+        } else if ($("#nisn").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "NISN harus diisi!",
+            });
+        } else if ($("#nik").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "NIK harus diisi!",
+            });
+        } else if ($("#name").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Nama Lengkap harus diisi!",
+            });
+        } else if ($("#tmp_lahir").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Tempat lahir harus diisi!",
+            });
+        } else if ($("#tgl_lahir").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Tanggal lahir harus diisi!",
+            });
+        } else if ($("#provinsi").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Provinsi harus dipilih!",
+            });
+        } else if ($("#kabupaten").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Kabupaten harus dipilih!",
+            });
+        } else if ($("#kecamatan").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Kecamatan harus dipilih!",
+            });
+        } else if ($("#desa").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Desa harus dipilih!",
+            });
+        } else if ($("#alamat").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Alamat harus diisi!",
+            });
+        } else if ($("#rt").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Rt harus diisi!",
+            });
+        } else if ($("#rw").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Rw harus diisi!",
+            });
+        } else if ($("#no_kk").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No KK harus diisi!",
+            });
+        } else if ($("#no_ktp_ayah").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No ktp ayah harus diisi!",
+            });
+        } else if ($("#pendidikan_ayah").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Pendidikan Ayah harus dipilih!",
+            });
+        } else if ($("#pekerjaan_ayah").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Pekerjaan Ayah harus dipilih!",
+            });
+        } else if ($("#ibu").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Nama ibu harus dipilih!",
+            });
+        } else if ($("#pendidikan_ibu").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Pendidikan Ibu harus dipilih!",
+            });
+        } else if ($("#pekerjaan_ibu").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Pekerjaan ibu harus dipilih!",
+            });
+        } else if ($("#no_tlp").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No Telepon harus diisi!",
+            });
+        } else if ($("#pendidikan_santri").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Pendidikan santri harus dipilih!",
+            });
+        } else if ($("#asal_sekolah").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Asal sekolah harus diisi!",
+            });
+        } else if ($("#thn_lulus").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Tahun lulus santri harus dipilih!",
+            });
+        } else if ($("#daftar_kelas").val() == null) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Dafatar kelas santri harus dipilih!",
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                url: $(this).attr("action"),
+                data: $(this).serialize(),
+                success: function (response) {
+                    $("#exampleModal").modal("hide");
+                    location.reload();
+                    $("#form-modal")[0].reset();
+                    Swal.fire({
+                        confirmButtonColor: "#18a342",
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Data berhasil disimpan!",
+                        confirmButtonText: "OK",
+                    });
+                },
+                error: function (xhr) {
+                    // Menampilkan pesan kesalahan jika ada
+                    var errors = xhr.responseJSON.errors;
+                    var errorString = "";
+                    for (var error in errors) {
+                        errorString += errors[error][0] + "\n";
+                    }
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errorString,
+                    });
+                },
+            });
+        }
     });
 
     // edit
@@ -503,34 +655,42 @@ $(document).ready(function () {
 
     $("#form-izin").on("submit", function (e) {
         e.preventDefault();
-        $.ajax({
-            url: $(this).attr("action"),
-            type: "POST",
-            data: $(this).serialize(),
-            success: function (response) {
-                if (response.success) {
-                    window.location.href = response.redirect_url;
-                }
-            },
-            error: function (xhr) {
-                if (xhr.status === 422) {
-                    const errors = xhr.responseJSON.errors;
-                    if (errors && errors.izin_nis) {
+        if ($("#izn_nis").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Silahkan isi NIS!",
+            });
+        } else {
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = response.redirect_url;
+                    }
+                },
+                error: function (xhr) {
+                    if (xhr.status === 422) {
+                        const errors = xhr.responseJSON.errors;
+                        if (errors && errors.izin_nis) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: errors.izin_nis[0],
+                            });
+                        }
+                    } else {
                         Swal.fire({
                             icon: "error",
                             title: "Error",
-                            text: errors.izin_nis[0],
+                            text: "Terjadi kesalahan. Silakan coba lagi.",
                         });
                     }
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: "Terjadi kesalahan. Silakan coba lagi.",
-                    });
-                }
-            },
-        });
+                },
+            });
+        }
     });
 
     $("#izin-form-save").on("submit", function (e) {
@@ -680,6 +840,124 @@ $(document).ready(function () {
                     text: errorMessage,
                 });
             },
+        });
+    });
+
+    $("#form-berita").on("submit", function (e) {
+        e.preventDefault();
+        if ($("#judul").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Judul berita harus diisi!",
+            });
+        } else if ($("#deskripsi").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Deskripsi berita harus diisi!",
+            });
+        } else {
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        confirmButtonColor: "#18a342",
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Berita berhasil disimpan!",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        window.location.href = response.redirect_url;
+                    });
+                },
+                error: function (xhr) {
+                    let errorMessage = "Terjadi kesalahan. Silakan coba lagi.";
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    }
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errorMessage,
+                    });
+                },
+            });
+        }
+    });
+
+    $(".btn-edit-berita").on("click", function (e) {
+        const id = $(this).data("id");
+        $.ajax({
+            url: `/berita/${id}`,
+            type: "GET",
+            success: function (data) {
+                $("#e-judul").val(data.judul);
+                $("#e-deskripsi").val(data.deskription);
+                $("#e-selengkapnya").val(data.selengkapnya);
+                $("#form-edit-berita").attr("action", `/berita/${id}`);
+                $("#modal-edit-berita").modal("show");
+            },
+        });
+    });
+
+    $("#form-edit-berita").on("submit", function (e) {
+        e.preventDefault();
+        if ($("#e-judul").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Judul berita harus diisi!",
+            });
+        } else if ($("#e-deskripsi").val() == "") {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Deskripsi berita harus diisi!",
+            });
+        } else {
+            $.ajax({
+                url: $(this).attr("action"),
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    Swal.fire({
+                        confirmButtonColor: "#18a342",
+                        icon: "success",
+                        title: "Berhasil!",
+                        text: "Berita berhasil diedit!",
+                        confirmButtonText: "OK",
+                    }).then(() => {
+                        window.location.href = response.redirect_url;
+                    });
+                },
+                error: function (xhr) {
+                    let errorMessage = "Terjadi kesalahan. Silakan coba lagi.";
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMessage = xhr.responseJSON.message;
+                    }
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errorMessage,
+                    });
+                },
+            });
+        }
+    });
+
+    $("#form-delete-berita").on("submit", function (e) {
+        e.preventDefault();
+        Swal.fire({
+            confirmButtonColor: "#18a342",
+            icon: "success",
+            title: "Berhasil!",
+            text: "Berita berhasil dihapus!",
+            confirmButtonText: "OK",
+        }).then(() => {
+            window.location.href = response.redirect_url;
         });
     });
 });

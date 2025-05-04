@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\BeritaController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -36,6 +37,7 @@ Route::get('/api/desa/{kecamatanId}', function ($kecamatanId) {
 // Route Client
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/detailBerita', [HomeController::class, 'detailBerita'])->name('detailBerita');;
     Route::get('/about', [AboutController::class, 'index']);
     Route::get('/contact', [ContactController::class, 'index']);
     Route::get('/profile/visi-misi', [ClientVisiMisiController::class, 'index'])->name('client.visi-misi');
@@ -88,4 +90,11 @@ Route::middleware(['auth', 'NoChace'])->group(function () {
     Route::get('/izin-santri/{id}', [IzinController::class, 'edit'])->name('izin.edit');
     Route::put('/izin-santri/{id}', [IzinController::class, 'update'])->name('form.update');
     Route::get('/izin-santri/{id}/export-pdf', [IzinController::class, 'exportPdf'])->name('izin.export-pdf');
+
+    // Route Berita
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+    Route::post('/berita', [BeritaController::class, 'store']);
+    Route::get('/berita/{id}', [BeritaController::class, 'edit']);
+    Route::put('/berita/{id}', [BeritaController::class, 'update']);
+    Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('berita.delete');
 });

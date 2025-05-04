@@ -4,21 +4,32 @@
     <section class="py-7">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="row justify-content-start">
-                        <div class="col-md-6">
+                <div class="col-lg-8">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
                             <div class="info">
-                                <i class="material-symbols-rounded text-3xl text-gradient text-info mb-3">public</i>
-                                <h5>Fully integrated</h5>
-                                <p>We get insulted by others, lose trust for those We get back freezes</p>
+                                <h5 class="text-3xl text-gradient text-info mb-3">About</h5>
+                                <h5>PONDOK PESANTREN NURUL HUDA</h5>
+                                <p>Pondok Pesantren Nurul Huda adalah lembaga pendidikan Islam yang berkomitmen untuk
+                                    mencetak generasi muda yang berilmu, berakhlak mulia, dan bertakwa kepada Allah SWT.
+                                    Sebagai lembaga pendidikan berbasis pesantren, PP Nurul Huda memadukan antara tradisi
+                                    keilmuan Islam klasik dan pendekatan pendidikan modern yang sesuai dengan kebutuhan
+                                    zaman.
+
+                                    Didirikan dengan tujuan mulia untuk menyebarkan ilmu agama dan membentuk karakter
+                                    islami, Pondok Pesantren Nurul Huda tidak hanya menjadi pusat pendidikan tetapi juga
+                                    rumah kedua bagi para santri. Lingkungan yang asri, penuh kedamaian, serta jauh dari
+                                    hiruk-pikuk kota memberikan kenyamanan bagi santri untuk menuntut ilmu, memperbaiki
+                                    diri, dan mengembangkan potensi mereka.
+
+                                    Pondok Pesantren Nurul Huda berdiri di atas landasan nilai-nilai keikhlasan,
+                                    kemandirian, kebersamaan, dan keteladanan, yang senantiasa diajarkan dan ditanamkan
+                                    kepada setiap santri dalam keseharian mereka.</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
-
-
                 <div class="col-lg-4 ms-auto mt-lg-0 mt-4">
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-2 mx-2 z-index-2">

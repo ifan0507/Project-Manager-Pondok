@@ -15,6 +15,34 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item " id="master-data">
+                    <a href="#"
+                        class="nav-link has-dropdown d-flex align-items-center {{ $activeMenu == 'master' ? 'active' : '' }}"
+                        data-bs-toggle="collapse" data-bs-target="#master"
+                        aria-expanded="{{ $activeMenu == 'master' ? 'true' : 'false' }}" aria-controls="master"
+                        data-bs-auto-close="false">
+                        <i class="nav-icon fa fa-folder"></i>
+                        <p class="ms-2">Master Data</p>
+                        <i class="fa-solid fa-angle-down ms-auto arrow-icon"></i>
+                    </a>
+                    <ul id="master" style="padding-left: 30px;"
+                        class="sidebar-dropdown list-unstyled collapse {{ $activeMenu == 'master' ? 'show' : '' }}"
+                        data-bs-parent="#sidebar">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="nav-icon fa-solid fa-clipboard"></i>Data
+                                Pendaftaran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/santri') }}"
+                                class="nav-link {{ $activeSubMenu == 'santri' ? 'active' : '' }} dataSantri">
+                                <i class="nav-icon fa-solid fa-users"></i>
+                                <p>Data Santri</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
                 <li class="nav-item" id="profile-menu">
                     <a href="#"
                         class="nav-link has-dropdown d-flex align-items-center {{ $activeMenu == 'profile' ? 'active' : '' }}"
@@ -48,22 +76,15 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/santri') }}"
-                        class="nav-link {{ $activeMenu == 'santri' ? 'active' : '' }} dataSantri">
-                        <i class="nav-icon far fa-user"></i>
-                        <p>Data Santri</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa-solid fa-graduation-cap"></i>
-                        <p>Pendidikan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('izin') }}" class="nav-link {{ $activeMenu == 'izin' ? 'active' : '' }}">
                         <i class="nav-icon fa fa-file-alt"></i>
                         <p>Perizinan Santri</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('berita') }}" class="nav-link {{ $activeMenu == 'berita' ? 'active' : '' }}">
+                        <i class="nav-icon fa-solid fa-newspaper"></i>
+                        <p>Management Berita</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -96,8 +117,8 @@
                 url: targetUrl,
                 method: "GET",
                 success: function(response) {
-                    Swal.close();
                     window.location.href = targetUrl;
+                    Swal.close();
                 },
                 error: function() {
                     Swal.fire({
@@ -134,7 +155,7 @@
         `);
             setTimeout(function() {
                 window.location.href = logoutUrl;
-            }, 2000);
+            }, 1000);
         });
     });
 </script>

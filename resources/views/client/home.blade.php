@@ -37,25 +37,17 @@
                         <div class="col-md-12">
                             <a href="">
                                 <div class="info">
-                                    <a href=""
-                                        style="text-decoration: none; color: black; transition: text-decoration 0.3s ease;"
-                                        onmouseover="this.style.textDecoration='underline';"
-                                        onmouseout="this.style.textDecoration='none';">
-                                        {{-- <i
+                                    @foreach ($beritas as $berita)
+                                        <a href="{{ route('detailBerita') }}"
+                                            style="text-decoration: none; color: black; transition: text-decoration 0.3s ease;"
+                                            onmouseover="this.style.textDecoration='underline';"
+                                            onmouseout="this.style.textDecoration='none';">
+                                            {{-- <i
                                             class="material-symbols-rounded text-gradient text-success text-3xl">announcement</i> --}}
-                                        <h5 class="font-weight-bolder mt-3">Pondok Pesantren Nurul Huda Adakan Haflah
-                                            Akhirussanah dan Wisuda
-                                            Santri</h5>
-                                        <p class="pe-5">
-
-                                            Karawang, 12 Desember 2024 – Pondok Pesantren Nurul Huda kembali
-                                            menyelenggarakan
-                                            acara tahunan Haflah Akhirussanah dan wisuda santri pada hari Minggu (10/12).
-                                            Acara
-                                            ini berlangsung dengan meriah di aula utama pondok dan dihadiri oleh para
-                                            santri,
-                                            wali santri, serta tokoh masyarakat setempat.</p>
-                                    </a>
+                                            <h5 class="font-weight-bolder mt-3">{{ $berita->judul }}</h5>
+                                            <p class="pe-5">{{ $berita->deskription }}</p>
+                                        </a>
+                                    @endforeach
                                 </div>
                             </a>
                         </div>
@@ -76,15 +68,14 @@
                             </div>
                         </div> --}}
                     </div>
-                    <div class="row justify-content-start">
+                    {{-- <div class="row justify-content-start">
                         <div class="col-md-12">
                             <div class="info">
                                 <a href=""
                                     style="text-decoration: none; color: black; transition: text-decoration 0.3s ease;"
                                     onmouseover="this.style.textDecoration='underline';"
                                     onmouseout="this.style.textDecoration='none';">
-                                    {{-- <i class="material-symbols-rounded text-gradient text-success text-3xl">flip_to_front</i> --}}
-                                    <h5 class="font-weight-bolder mt-3">Pondok Pesantren Nurul Huda Gelar Kegiatan Sosial
+                                     <h5 class="font-weight-bolder mt-3">Pondok Pesantren Nurul Huda Gelar Kegiatan Sosial
                                         untuk
                                         Masyarakat Sekitar</h5>
                                     <p class="pe-3">Karawang, 12 Desember 2024 – Pondok Pesantren Nurul Huda baru-baru ini
@@ -96,7 +87,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

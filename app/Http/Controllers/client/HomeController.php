@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Berita;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,11 +13,21 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $beritas = Berita::orderBy('created_at', 'desc')->take(3)->get();
         $data = (object)[
             'title' => 'PP NURUL HUDA',
             'list' => 'Mangunsari Tekung Lumajang'
         ];
-        return view('client.home', ['data' => $data]);
+        return view('client.home', ['data' => $data, 'beritas' => $beritas]);
+    }
+
+    public function detailBerita()
+    {
+        $data = (object)[
+            'title' => 'Detail Berita',
+            'list' => 'Mangunsari Tekung Lumajang'
+        ];
+        return view('client.detailBerita', ['data' => $data]);
     }
 
     /**

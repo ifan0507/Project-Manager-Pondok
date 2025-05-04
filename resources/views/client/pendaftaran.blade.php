@@ -465,7 +465,7 @@
                 }
                 const data = await response.json();
 
-                data.forEach(kabupaten => {
+                data.forEach(kabupaten => {     
                     const option = document.createElement('option');
                     option.value = kabupaten.name;
                     option.dataset.id = kabupaten.id;

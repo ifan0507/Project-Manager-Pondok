@@ -54,7 +54,7 @@ class SantriController extends Controller
         $kabupaten = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/regencies/35.json');
         $kabupatens = json_decode($kabupaten->body());
 
-        $data =  Santri::filter(request(['search', 'ortu', 'riwayat_santri']))->orderBy('created_at', 'asc')->paginate(3)->withQueryString();
+        $data =  Santri::filter(request(['search', 'ortu', 'riwayat_santri']))->orderBy('created_at', 'asc')->paginate(10)->withQueryString();
 
         $breadcrumb = (object)[
             'title' => 'Data Santri',
@@ -62,8 +62,8 @@ class SantriController extends Controller
 
         ];
 
-        $activeMenu = 'santri';
-        $activeSubMenu = '';
+        $activeMenu = 'master';
+        $activeSubMenu = 'santri';
         return view('admin.santri.index', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'activeSubMenu' => $activeSubMenu, 'santris' => $data, 'kabupatens' => $kabupatens, 'nis' => $nis, 'noDaftar' => $no_daftar, 'tglDaftar' => $tanggalDaftar]);
     }
 
@@ -88,7 +88,7 @@ class SantriController extends Controller
     
     Selanjutnya, kami mohon agar Bapak/Ibu/Wali santri segera mengurus administrasi pembayaran sesuai dengan ketentuan yang berlaku.
     
-    Jika ada pertanyaan, silakan hubungi kami di nomor WhatsApp resmi sekolah.
+    Jika ada pertanyaan, silakan hubungi kami di nomor WhatsApp resmi PP Nurul Huda.
     
     Terima kasih atas perhatiannya.
     
@@ -154,60 +154,26 @@ class SantriController extends Controller
     {
 
         $request->validate([
-            'thn_pelajaran' => ['required'],
-            'nisn' => ['required', 'unique:santris,nisn'],
-            'nik' => ['required', 'unique:santris,nik'],
-            'name' => ['required', 'string', 'max:255'],
+            'nisn' => ['unique:santris,nisn'],
+            'nik' => ['unique:santris,nik'],
+            'name' => ['string', 'max:255'],
             'jenis_kelamin' => ['required'],
-            'tmp_lahir' => ['required', 'string', 'max:255'],
-            'tgl_lahir' => ['required', 'date'],
-            'provinsi' => ['required'],
-            'kabupaten' => ['required'],
-            'kecamatan' => ['required'],
-            'desa' => ['required'],
-            'alamat' => ['required', 'string', 'max:255'],
-            'rt' => ['required'],
-            'rw' => ['required'],
-            'no_kk' => ['required'],
-            'ayah' => ['required', 'string', 'max:255'],
-            'no_ktp_ayah' => ['required', 'max:255'],
-            'pendidikan_ayah' => ['required'],
-            'pekerjaan_ayah' => ['required'],
-            'ibu' => ['required', 'string', 'max:255'],
-            'no_ktp_ibu' => ['required'],
-            'pendidikan_ibu' => ['required'],
-            'pekerjaan_ibu' => ['required'],
-            'no_tlp' => ['required', 'max:13'],
+            'tmp_lahir' => ['string', 'max:255'],
+            'tgl_lahir' => ['date'],
+            'alamat' => ['string', 'max:255'],
+            'ayah' => ['string', 'max:255'],
+            'no_ktp_ayah' => ['max:255'],
+            'ibu' => ['string', 'max:255'],
+            'no_tlp' => ['max:13'],
         ], [
-            'thn_pelajaran.required' => 'Tahun pelajaran harus dipilih',
-            'nisn.required' => 'NISN tidak boleh kosong',
+
             'nisn.unique' => 'NISN sudah terdaftar',
             'nik.required' => 'NIK tidak boleh kosong',
             'nik.unique' => 'NIK sudah terdaftar',
-            'nama.required' => 'Nama tidak boleh kosong',
             'nama.string' => 'Nama harus berupa string',
             'nama.max' => 'Nama maksimal 255 karakter',
-            'tmp_lahir.required' => 'Tempat lahir harus dipilih',
-            'tgl_lahir.required' => 'Tanggal lahir harus dipilih',
-            'provinsi.required' => 'Provinsi harus dipilih',
-            'kabupaten.required' => 'Kabupaten harus dipilih',
-            'kecamatan.required' => 'Kecamatan harus dipilih',
-            'desa.required' => 'Desa harus dipilih',
-            'alamat.required' => 'Alamat tidak boleh kosong',
             'alamat.string' => 'Alamat harus berupa string',
             'alamat.max' => 'Alamat maksimal 255 karakter',
-            'rt.required' => 'RT harus diisi',
-            'rw.required' => 'RW harus diisi',
-            'no_kk.required' => 'No. KK harus diisi',
-            'ayah.required' => 'Nama ayah harus diisi',
-            'no_ktp_ayah.required' => 'No. KTP ayah harus diisi',
-            'pendidikan_ayah.required' => 'Pendidikan ayah harus dipilih',
-            'pekerjaan_ayah.required' => 'Pekerjaan ayah harus dipilih',
-            'ibu.required' => 'Nama ibu harus diisi',
-            'no_ktp_ibu.required' => 'No. KTP ibu harus diisi',
-            'pendidikan_ibu.required' => 'Pendidikan ibu harus dipilih',
-            'pekerjaan_ibu.required' => 'Pekerjaan ibu harus dipilih',
-            'no_tlp.required' => 'No. Telp harus diisi',
             'no_tlp.max' => 'No. Telp maksimal 13 karakter',
         ]);
 
@@ -320,7 +286,7 @@ class SantriController extends Controller
             'e-no_ktp_ibu' => ['required'],
             'e-pendidikan_ibu' => ['required'],
             'e-pekerjaan_ibu' => ['required'],
-            'e-no_tlp' => ['required', 'max:13', 'number'],
+            'e-no_tlp' => ['required', 'max:13'],
         ], [
             'e-thn_pelajaran.required' => 'Tahun pelajaran harus dipilih',
             'e-nisn.required' => 'NISN tidak boleh kosong',
@@ -351,7 +317,6 @@ class SantriController extends Controller
             'e-pendidikan_ibu.required' => 'Pendidikan ibu harus dipilih',
             'e-pekerjaan_ibu.required' => 'Pekerjaan ibu harus dipilih',
             'e-no_tlp.required' => 'No. Telp harus diisi',
-            'e-no_tlp.number' => 'No. Telp harus berupa angka',
             'e-no_tlp.max' => 'No. Telp maksimal 13 karakter',
         ]);
 

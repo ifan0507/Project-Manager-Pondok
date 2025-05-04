@@ -35,9 +35,8 @@ class IzinController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'izin_nis' => 'required|exists:santris,nis',
+            'izin_nis' => 'exists:santris,nis',
         ], [
-            'izin_nis.required' => 'NIS santri harus diisi!',
             'izin_nis.exists' => 'NIS santri yang dimasukkan tidak ditemukan.',
         ]);
 

@@ -6,11 +6,21 @@
 .nav-link[aria-expanded="true"] .arrow-icon {
     transform: rotate(180deg);
 }
+
 #profile {
     padding-left: 30px;
 }
 
+#master {
+    padding-left: 30px;
+}
+
 #profile-menu #profile.show .nav-item .nav-link.active {
+    color: #4d34eb;
+    background-color: transparent !important;
+}
+
+#master-data #master.show .nav-item .nav-link.active {
     color: #4d34eb;
     background-color: transparent !important;
 }

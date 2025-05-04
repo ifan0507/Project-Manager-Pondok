@@ -136,8 +136,8 @@
 
     <!-- Modal Tamabah-->
     <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content ">
                 <div class="modal-header" style="background-color: #060d51; color: white">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Santri</h5>
                     <button type="button" class="btn-close  btn-close-white" data-bs-dismiss="modal"
@@ -148,21 +148,21 @@
                     @csrf
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="no_daftar" class="col-form-label">No Pendaftaran</label>
                                     <input type="text" class="form-control" id="no_daftar" name="no_daftar"
                                         value="{{ $noDaftar }}" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="tgl_daftar" class="col-form-label">Tanggal Daftar</label>
                                     <input type="text" class="form-control" name="tgl_daftar" id="tgl_daftar"
                                         placeholder="" value="{{ $tglDaftar }}" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="thn_pelajaran" class="col-form-label">Tahun Pelajaran <span
                                             class="required" style="color:red">*</span></label>
@@ -179,7 +179,7 @@
 
                         <div class="row">
                             <!-- NIS -->
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="nis" class="col-form-label">NIS</label>
                                     <input type="text" class="form-control" id="nis" name="nis"
@@ -187,7 +187,7 @@
                                 </div>
                             </div>
                             <!-- NISN -->
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="nisn" class="col-form-label">NISN <span class="required"
                                             style="color:red">*</span></label>
@@ -195,13 +195,11 @@
                                 </div>
                             </div>
                             {{-- NIK --}}
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
-                                    <div class="mb-3">
-                                        <label for="nik" class="col-form-label">NIK <span class="required"
-                                                style="color:red">*</span></label>
-                                        <input type="text" class="form-control" id="nik" name="nik">
-                                    </div>
+                                    <label for="nik" class="col-form-label">NIK <span class="required"
+                                            style="color:red">*</span></label>
+                                    <input type="text" class="form-control" id="nik" name="nik">
                                 </div>
                             </div>
                         </div>
@@ -229,14 +227,14 @@
 
                         <!-- Tempat & Tanggal Lahir -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="tmp_lahir" class="col-form-label">Tempat Lahir <span class="required"
                                             style="color:red">*</span></label>
                                     <input type="text" class="form-control" id="tmp_lahir" name="tmp_lahir">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="tgl_lahir" class="col-form-label">Tanggal Lahir <span class="required"
                                             style="color:red">*</span></label>
@@ -247,7 +245,7 @@
 
                         <!-- Provinsi, Kabupaten, Kecamatan, Desa -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     @php
                                         $provinsi = Http::get(
@@ -269,7 +267,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="kabupaten" class="col-form-label">Kabupaten <span class="required"
                                             style="color:red">*</span></label>
@@ -284,7 +282,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="kecamatan" class="col-form-label">Kecamatan <span class="required"
                                             style="color:red">*</span></label>
@@ -297,7 +295,7 @@
                                         dahulu.</div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="desa" class="col-form-label">Desa <span class="required"
                                             style="color:red">*</span></label>
@@ -318,14 +316,14 @@
 
                         <!-- RT & RW -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="rt" class="col-form-label">RT <span class="required"
                                             style="color:red">*</span></label>
                                     <input type="text" class="form-control" id="rt" name="rt">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="rw" class="col-form-label">RW <span class="required"
                                             style="color:red">*</span></label>
@@ -353,11 +351,11 @@
                             <input type="text" class="form-control" id="no_ktp_ayah" name="no_ktp_ayah">
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="pendidikan_ayah" class="col-form-label">Pendidikan Ayah <span
                                             class="required" style="color:red">*</span></label>
-                                    <select class="form-select" id="pendidikan_ayah" name="pendidikan_ayah" required>
+                                    <select class="form-select" id="pendidikan_ayah" name="pendidikan_ayah">
                                         <option disabled selected class="form-label" value="">Pendidikan
                                             Ayah
                                         </option>
@@ -375,11 +373,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="pekerjaan_ayah" class="col-form-label">Pekerjaan Ayah <span
                                             class="required" style="color:red">*</span></label>
-                                    <select class="form-select" id="pekerjaan_ayah" name="pekerjaan_ayah" required>
+                                    <select class="form-select" id="pekerjaan_ayah" name="pekerjaan_ayah">
                                         <option disabled selected class="form-label" value="">Pekerjaan Ayah
                                         </option>
                                         <option value="wiraswasta">Wiraswasta</option>
@@ -402,11 +400,11 @@
                             <input type="text" class="form-control" id="no_ktp_ibu" name="no_ktp_ibu">
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="pendidikan_ibu" class="col-form-label">Pendidikan Ibu <span
                                             class="required" style="color:red">*</span></label>
-                                    <select class="form-select" id="pendidikan_ibu" name="pendidikan_ibu" required>
+                                    <select class="form-select" id="pendidikan_ibu" name="pendidikan_ibu">
                                         <option disabled selected class="form-label" value="">Pendidikan Ibu
                                         </option>
                                         <option value="tidak_tamat_sd/sederajat">TIDAK TAMAT
@@ -423,11 +421,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="pekerjaan_ibu" class="col-form-label">Pekerjaan Ibu <span
                                             class="required" style="color:red">*</span></label>
-                                    <select class="form-select" id="pekerjaan_ibu" name="pekerjaan_ibu" required>
+                                    <select class="form-select" id="pekerjaan_ibu" name="pekerjaan_ibu">
                                         <option disabled selected class="form-label" value="">Pekerjaan Ibu
                                         </option>
                                         <option value="wiraswasta">Wiraswasta</option>
@@ -447,11 +445,11 @@
                         </div>
                         <!-- RIWAYAT PENDIDIKAN SANTRI -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="pendidikan_santri" class="col-form-label">Pendidikan Terakhir Santri <span
                                             class="required" style="color:red">*</span></label>
-                                    <select class="form-select" id="pendidikan_santri" name="pendidikan_santri" required>
+                                    <select class="form-select" id="pendidikan_santri" name="pendidikan_santri">
                                         <option disabled selected value="">Pilih Pendidikan Terakhir</option>
                                         <option value="tidak_tamat_sd/sederajat">Tidak Tamat SD/Sederajat</option>
                                         <option value="tamat_sd/sederajat">Tamat SD/Sederajat</option>
@@ -463,21 +461,20 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="asal_sekolah" class="col-form-label">Asal Sekolah <span class="required"
                                             style="color:red">*</span></label>
-                                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah"
-                                        required>
+                                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="thn_lulus" class="col-form-label">Tahun Lulus <span class="required"
                                             style="color:red">*</span></label>
-                                    <select class="form-select" id="thn_lulus" name="thn_lulus" required>
+                                    <select class="form-select" id="thn_lulus" name="thn_lulus">
                                         <option disabled selected value="">Pilih Tahun Lulus</option>
                                         <option value="2024/2025">2024/2025</option>
                                         <option value="2023/2024">2023/2024</option>
@@ -485,11 +482,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="daftar_kelas" class="col-form-label">Daftar Kelas <span class="required"
                                             style="color:red">*</span></label>
-                                    <select class="form-select" id="daftar_kelas" name="daftar_kelas" required>
+                                    <select class="form-select" id="daftar_kelas" name="daftar_kelas">
                                         <option disabled selected value="">Pilih Kelas</option>
                                         <option value="1ibtidyah">1 Ibtidyah</option>
                                         <option value="2tsanawiyah">2 Tsanawiyah</option>
@@ -517,7 +514,7 @@
 
     {{-- Modal Edit --}}
     <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="modal-editLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: #060d51; color: white">
                     <h5 class="modal-title" id="exampleModalLabel">Update Santri</h5>
@@ -532,21 +529,21 @@
                         <input type="hidden" name="e-id-ortu" id="e-id-ortu">
                         <input type="hidden" name="e-id-riwayat" id="e-id-riwayat">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="e-no_daftar" class="col-form-label">No Pendaftaran</label>
                                     <input type="text" class="form-control" id="e-no_daftar" name="e-no_daftar"
                                         readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="e-tgl_daftar" class="col-form-label">Tanggal Daftar</label>
                                     <input type="text" class="form-control" name="e-tgl_daftar" id="e-tgl_daftar"
                                         placeholder="" readonly>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="e-thn_pelajaran" class="col-form-label">Tahun Pelajaran <span
                                             class="required" style="color:red">*</span></label>
@@ -562,14 +559,14 @@
                         </div>
                         <div class="row">
                             <!-- NIS -->
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="e-nis" class="col-form-label">NIS</label>
                                     <input type="text" class="form-control" id="e-nis" name="e-nis" readonly>
                                 </div>
                             </div>
                             <!-- NISN -->
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <label for="e-nisn" class="col-form-label">NISN <span class="required"
                                             style="color:red">*</span></label>
@@ -577,7 +574,7 @@
                                 </div>
                             </div>
                             {{-- NIK --}}
-                            <div class="col">
+                            <div class="col-md-4 col-12">
                                 <div class="mb-3">
                                     <div class="mb-3">
                                         <label for="e-nik" class="col-form-label">NIK <span class="required"
@@ -609,14 +606,14 @@
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-tmp_lahir" class="col-form-label">Tempat Lahir <span class="required"
                                             style="color:red">*</span></label>
                                     <input type="text" class="form-control" id="e-tmp_lahir" name="e-tmp_lahir">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-tgl_lahir" class="col-form-label">Tanggal Lahir <span class="required"
                                             style="color:red">*</span></label>
@@ -626,7 +623,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 @php
                                     $provinsi = Http::get(
                                         'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json',
@@ -650,7 +647,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="kabupaten" class="col-form-label">Kabupaten <span class="required"
                                             style="color:red">*</span></label>
@@ -667,7 +664,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="kecamatan" class="col-form-label">Kecamatan <span class="required"
                                             style="color:red">*</span></label>
@@ -682,7 +679,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="desa" class="col-form-label">Desa <span class="required"
                                             style="color:red">*</span></label>
@@ -703,14 +700,14 @@
 
                         <!-- RT & RW -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-rt" class="col-form-label">RT <span class="required"
                                             style="color:red">*</span></label>
                                     <input type="text" class="form-control" id="e-rt" name="e-rt">
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-rw" class="col-form-label">RW <span class="required"
                                             style="color:red">*</span></label>
@@ -738,7 +735,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-pendidikan_ayah" class="col-form-label">Pendidikan Ayah <span
                                             class="required" style="color:red">*</span></label>
@@ -760,7 +757,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-pekerjaan_ayah" class="col-form-label">Pekerjaan Ayah <span
                                             class="required" style="color:red">*</span></label>
@@ -786,7 +783,7 @@
                             <input type="text" class="form-control" id="e-no_ktp_ibu" name="e-no_ktp_ibu">
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-pendidikan_ibu" class="col-form-label">Pendidikan Ibu <span
                                             class="required" style="color:red">*</span></label>
@@ -807,7 +804,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-pekerjaan_ibu" class="col-form-label">Pekerjaan Ibu <span
                                             class="required" style="color:red">*</span></label>
@@ -831,7 +828,7 @@
                         </div>
                         <!-- RIWAYAT PENDIDIKAN SANTRI -->
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-pendidikan_santri" class="col-form-label">Pendidikan Terakhir Santri
                                         <span class="required" style="color:red">*</span></label>
@@ -848,7 +845,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-asal_sekolah" class="col-form-label">Asal Sekolah <span
                                             class="required" style="color:red">*</span></label>
@@ -858,7 +855,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-thn_lulus" class="col-form-label">Tahun Lulus <span class="required"
                                             style="color:red">*</span></label>
@@ -870,7 +867,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-6 col-12">
                                 <div class="mb-3">
                                     <label for="e-daftar_kelas" class="col-form-label">Daftar Kelas <span
                                             class="required" style="color:red">*</span></label>
@@ -1064,8 +1061,8 @@
                                 <td>:</td>
                                 <td id="d-daftar_kelas"></td>
                             </tr>
+                        </table>
                     </div>
-                    </table>
                 </div>
             </div>
         </div>
